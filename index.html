@@ -32,6 +32,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
         }
 
         body {
@@ -40,6 +41,144 @@
             min-height: 100vh;
             color: var(--text-dark);
             overflow-x: hidden;
+        }
+
+        /* Snap Sections */
+        .snap-section {
+            min-height: 100vh;
+            min-height: 100dvh;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .snap-section-content {
+            width: 100%;
+            max-width: 480px;
+            opacity: 0;
+            transform: translateY(50px) scale(0.95);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .snap-section.visible .snap-section-content {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Section-specific animations */
+        .snap-section.visible .animate-fade-up {
+            animation: sectionFadeUp 0.8s ease-out forwards;
+        }
+
+        .snap-section.visible .animate-fade-left {
+            animation: sectionFadeLeft 0.8s ease-out forwards;
+        }
+
+        .snap-section.visible .animate-fade-right {
+            animation: sectionFadeRight 0.8s ease-out forwards;
+        }
+
+        .snap-section.visible .animate-zoom {
+            animation: sectionZoom 0.8s ease-out forwards;
+        }
+
+        .snap-section.visible .animate-rotate {
+            animation: sectionRotate 0.8s ease-out forwards;
+        }
+
+        @keyframes sectionFadeUp {
+            from { opacity: 0; transform: translateY(60px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes sectionFadeLeft {
+            from { opacity: 0; transform: translateX(-60px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes sectionFadeRight {
+            from { opacity: 0; transform: translateX(60px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes sectionZoom {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes sectionRotate {
+            from { opacity: 0; transform: rotate(-10deg) scale(0.9); }
+            to { opacity: 1; transform: rotate(0deg) scale(1); }
+        }
+
+        /* Staggered children animations */
+        .snap-section.visible .stagger-1 { animation-delay: 0.1s; }
+        .snap-section.visible .stagger-2 { animation-delay: 0.2s; }
+        .snap-section.visible .stagger-3 { animation-delay: 0.3s; }
+        .snap-section.visible .stagger-4 { animation-delay: 0.4s; }
+        .snap-section.visible .stagger-5 { animation-delay: 0.5s; }
+
+        /* Section Navigation Dots */
+        .section-nav {
+            position: fixed;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .section-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(233, 30, 140, 0.3);
+            border: 2px solid var(--deep-rose);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .section-dot:hover {
+            transform: scale(1.3);
+            background: var(--primary-pink);
+        }
+
+        .section-dot.active {
+            background: var(--deep-rose);
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(233, 30, 140, 0.5);
+        }
+
+        /* Swipe indicator for mobile */
+        .swipe-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-light);
+            font-size: 0.8rem;
+            animation: swipeHint 2s infinite;
+        }
+
+        .swipe-indicator svg {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 5px;
+        }
+
+        @keyframes swipeHint {
+            0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+            50% { transform: translateX(-50%) translateY(-10px); opacity: 0.5; }
         }
 
         /* Floating Elements Animation */
@@ -97,25 +236,29 @@
         .sparkle:nth-child(11) { top: 80%; left: 25%; animation-delay: 1.4s; }
         .sparkle:nth-child(12) { top: 70%; right: 30%; animation-delay: 1.7s; }
 
-        /* Main Container */
+        /* Main Container - removed for snap layout */
         .container {
             position: relative;
             z-index: 1;
-            max-width: 480px;
-            margin: 0 auto;
-            padding: 20px;
         }
 
         /* Header Section */
         .header {
             text-align: center;
             padding: 40px 20px;
-            animation: fadeInDown 1s ease-out;
         }
 
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .header-content {
+            opacity: 0;
+        }
+
+        .snap-section.visible .header-content {
+            animation: headerReveal 1.2s ease-out forwards;
+        }
+
+        @keyframes headerReveal {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .cross-icon {
@@ -168,7 +311,11 @@
             align-items: center;
             justify-content: center;
             margin: 30px 0;
-            animation: fadeIn 1s ease-out 0.3s both;
+            opacity: 0;
+        }
+
+        .snap-section.visible .divider {
+            animation: fadeIn 1s ease-out 0.5s forwards;
         }
 
         @keyframes fadeIn {
@@ -197,18 +344,23 @@
             margin-bottom: 20px;
             box-shadow: 0 10px 40px rgba(233, 30, 140, 0.1);
             border: 1px solid rgba(248, 180, 217, 0.3);
-            animation: slideUp 0.8s ease-out both;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+        }
+
+        .snap-section.visible .info-card {
+            animation: cardReveal 0.8s ease-out forwards;
+        }
+
+        @keyframes cardReveal {
+            from { opacity: 0; transform: translateY(40px) rotateX(10deg); }
+            to { opacity: 1; transform: translateY(0) rotateX(0); }
         }
 
         .info-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 50px rgba(233, 30, 140, 0.15);
         }
-
-        .info-card:nth-child(1) { animation-delay: 0.4s; }
-        .info-card:nth-child(2) { animation-delay: 0.6s; }
-        .info-card:nth-child(3) { animation-delay: 0.8s; }
 
         @keyframes slideUp {
             from { opacity: 0; transform: translateY(30px); }
@@ -252,7 +404,16 @@
         .photo-section {
             position: relative;
             margin: 30px 0;
-            animation: fadeIn 1s ease-out 1s both;
+            opacity: 0;
+        }
+
+        .snap-section.visible .photo-section {
+            animation: photoReveal 1s ease-out forwards;
+        }
+
+        @keyframes photoReveal {
+            from { opacity: 0; transform: scale(0.5) rotate(-20deg); }
+            to { opacity: 1; transform: scale(1) rotate(0deg); }
         }
 
         .photo-frame {
@@ -306,7 +467,16 @@
             padding: 30px;
             margin: 30px 0;
             text-align: center;
-            animation: slideUp 0.8s ease-out 1.2s both;
+            opacity: 0;
+        }
+
+        .snap-section.visible .message-section {
+            animation: messageReveal 1s ease-out forwards;
+        }
+
+        @keyframes messageReveal {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .message-section h3 {
@@ -327,7 +497,16 @@
         .rsvp-section {
             text-align: center;
             margin: 40px 0;
-            animation: fadeIn 1s ease-out 1.4s both;
+            opacity: 0;
+        }
+
+        .snap-section.visible .rsvp-section {
+            animation: rsvpReveal 1s ease-out forwards;
+        }
+
+        @keyframes rsvpReveal {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .rsvp-btn {
@@ -380,7 +559,32 @@
             padding: 25px;
             margin: 30px 0;
             text-align: center;
-            animation: slideUp 0.8s ease-out 1s both;
+            width: 100%;
+            opacity: 0;
+        }
+
+        .snap-section.visible .countdown-section {
+            animation: countdownReveal 1s ease-out forwards;
+        }
+
+        @keyframes countdownReveal {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .snap-section.visible .countdown-item {
+            opacity: 0;
+            animation: countdownItemReveal 0.6s ease-out forwards;
+        }
+
+        .snap-section.visible .countdown-item:nth-child(1) { animation-delay: 0.3s; }
+        .snap-section.visible .countdown-item:nth-child(2) { animation-delay: 0.4s; }
+        .snap-section.visible .countdown-item:nth-child(3) { animation-delay: 0.5s; }
+        .snap-section.visible .countdown-item:nth-child(4) { animation-delay: 0.6s; }
+
+        @keyframes countdownItemReveal {
+            from { opacity: 0; transform: scale(0.5) rotateY(90deg); }
+            to { opacity: 1; transform: scale(1) rotateY(0); }
         }
 
         .countdown-title {
@@ -423,7 +627,16 @@
         .footer {
             text-align: center;
             padding: 30px 20px;
-            animation: fadeIn 1s ease-out 1.6s both;
+            opacity: 0;
+        }
+
+        .snap-section.visible .footer {
+            animation: footerReveal 1s ease-out forwards;
+        }
+
+        @keyframes footerReveal {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .footer-hearts {
@@ -522,13 +735,13 @@
             margin-top: 15px;
         }
 
-        /* Scroll Indicator */
+        /* Scroll Indicator - updated for snap */
         .scroll-indicator {
-            position: fixed;
+            position: absolute;
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            animation: bounce 2s infinite, fadeOut 0.5s ease-out 4s forwards;
+            animation: bounce 2s infinite;
             z-index: 10;
         }
 
@@ -564,6 +777,35 @@
             0% { opacity: 1; top: 8px; }
             100% { opacity: 0; top: 30px; }
         }
+
+        /* Section backgrounds for variety */
+        .section-welcome {
+            background: radial-gradient(ellipse at center, rgba(255,255,255,0.3) 0%, transparent 70%);
+        }
+
+        .section-photo {
+            background: radial-gradient(ellipse at top, rgba(248,180,217,0.2) 0%, transparent 60%);
+        }
+
+        .section-details {
+            background: radial-gradient(ellipse at bottom, rgba(225,190,231,0.2) 0%, transparent 60%);
+        }
+
+        .section-countdown {
+            background: radial-gradient(ellipse at center, rgba(212,175,55,0.1) 0%, transparent 60%);
+        }
+
+        .section-message {
+            background: radial-gradient(ellipse at top, rgba(252,228,236,0.3) 0%, transparent 60%);
+        }
+
+        .section-rsvp {
+            background: radial-gradient(ellipse at center, rgba(233,30,140,0.1) 0%, transparent 60%);
+        }
+
+        .section-footer {
+            background: radial-gradient(ellipse at bottom, rgba(248,180,217,0.2) 0%, transparent 60%);
+        }
     </style>
 </head>
 <body>
@@ -591,118 +833,168 @@
         <div class="sparkle"></div>
     </div>
 
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator">
-        <span></span>
-    </div>
+    <!-- Section Navigation Dots -->
+    <nav class="section-nav">
+        <div class="section-dot active" data-section="0"></div>
+        <div class="section-dot" data-section="1"></div>
+        <div class="section-dot" data-section="2"></div>
+        <div class="section-dot" data-section="3"></div>
+        <div class="section-dot" data-section="4"></div>
+        <div class="section-dot" data-section="5"></div>
+        <div class="section-dot" data-section="6"></div>
+    </nav>
 
-    <!-- Main Container -->
+    <!-- Main Container with Snap Sections -->
     <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="cross-icon">✝</div>
-            <p class="invitation-text">You are cordially invited to the Christening of</p>
-            <h1 class="baby-name">Francine Veronica</h1>
-            <p class="event-type">Christening</p>
-        </header>
 
-        <!-- Divider -->
-        <div class="divider">
-            <div class="divider-line"></div>
-            <span class="divider-icon">♡</span>
-            <div class="divider-line"></div>
-        </div>
+        <!-- Section 1: Welcome / Header -->
+        <section class="snap-section section-welcome visible" data-index="0">
+            <div class="snap-section-content">
+                <header class="header">
+                    <div class="header-content">
+                        <div class="cross-icon">✝</div>
+                        <p class="invitation-text">You are cordially invited to the Christening of</p>
+                        <h1 class="baby-name">Francine Veronica</h1>
+                        <p class="event-type">Christening</p>
+                    </div>
 
-        <!-- Photo Section -->
-        <div class="photo-section">
-            <div class="photo-frame">
-                <div class="photo-inner">
-                    <div class="photo-placeholder">
-                        <span>👶</span>
-                        Photo Here
+                    <!-- Divider -->
+                    <div class="divider">
+                        <div class="divider-line"></div>
+                        <span class="divider-icon">♡</span>
+                        <div class="divider-line"></div>
+                    </div>
+                </header>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator">
+                <span></span>
+            </div>
+        </section>
+
+        <!-- Section 2: Photo -->
+        <section class="snap-section section-photo" data-index="1">
+            <div class="snap-section-content">
+                <div class="photo-section">
+                    <div class="photo-frame">
+                        <div class="photo-inner">
+                            <div class="photo-placeholder">
+                                <span>👶</span>
+                                Photo Here
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Info Cards -->
-        <div class="info-card">
-            <div class="info-card-icon">📅</div>
-            <div class="info-card-title">When</div>
-            <div class="info-card-content">[Date Placeholder]</div>
-            <div class="info-card-subcontent">[Time Placeholder]</div>
-        </div>
+            <div class="swipe-indicator">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M5 12l7 7 7-7"/>
+                </svg>
+                <span>Swipe up</span>
+            </div>
+        </section>
 
-        <div class="info-card">
-            <div class="info-card-icon">⛪</div>
-            <div class="info-card-title">Ceremony</div>
-            <div class="info-card-content">[Church Name Placeholder]</div>
-            <div class="info-card-subcontent">[Church Address Placeholder]</div>
-            <a href="#" class="map-link">📍 View on Map</a>
-        </div>
-
-        <div class="info-card">
-            <div class="info-card-icon">🎉</div>
-            <div class="info-card-title">Reception</div>
-            <div class="info-card-content">[Venue Name Placeholder]</div>
-            <div class="info-card-subcontent">[Venue Address Placeholder]</div>
-            <a href="#" class="map-link">📍 View on Map</a>
-        </div>
-
-        <!-- Countdown Timer -->
-        <div class="countdown-section">
-            <div class="countdown-title">Counting Down To The Special Day</div>
-            <div class="countdown-timer">
-                <div class="countdown-item">
-                    <span class="countdown-number" id="days">00</span>
-                    <span class="countdown-label">Days</span>
+        <!-- Section 3: Event Details -->
+        <section class="snap-section section-details" data-index="2">
+            <div class="snap-section-content">
+                <div class="info-card stagger-1">
+                    <div class="info-card-icon">📅</div>
+                    <div class="info-card-title">When</div>
+                    <div class="info-card-content">[Date Placeholder]</div>
+                    <div class="info-card-subcontent">[Time Placeholder]</div>
                 </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="hours">00</span>
-                    <span class="countdown-label">Hours</span>
+
+                <div class="info-card stagger-2">
+                    <div class="info-card-icon">⛪</div>
+                    <div class="info-card-title">Ceremony</div>
+                    <div class="info-card-content">[Church Name Placeholder]</div>
+                    <div class="info-card-subcontent">[Church Address Placeholder]</div>
+                    <a href="#" class="map-link">📍 View on Map</a>
                 </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="minutes">00</span>
-                    <span class="countdown-label">Mins</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="seconds">00</span>
-                    <span class="countdown-label">Secs</span>
+
+                <div class="info-card stagger-3">
+                    <div class="info-card-icon">🎉</div>
+                    <div class="info-card-title">Reception</div>
+                    <div class="info-card-content">[Venue Name Placeholder]</div>
+                    <div class="info-card-subcontent">[Venue Address Placeholder]</div>
+                    <a href="#" class="map-link">📍 View on Map</a>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Message Section -->
-        <div class="message-section">
-            <h3>A Little Note</h3>
-            <p>
-                "For this child I prayed, and the Lord has granted me my petition that I made to him."
-                <br><br>
-                — 1 Samuel 1:27
-            </p>
-        </div>
+        <!-- Section 4: Countdown Timer -->
+        <section class="snap-section section-countdown" data-index="3">
+            <div class="snap-section-content">
+                <div class="countdown-section">
+                    <div class="countdown-title">Counting Down To The Special Day</div>
+                    <div class="countdown-timer">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="days">00</span>
+                            <span class="countdown-label">Days</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="hours">00</span>
+                            <span class="countdown-label">Hours</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="minutes">00</span>
+                            <span class="countdown-label">Mins</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="seconds">00</span>
+                            <span class="countdown-label">Secs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- RSVP Section -->
-        <div class="rsvp-section">
-            <a href="#" class="rsvp-btn">RSVP Now</a>
-            <p style="margin-top: 15px; color: var(--text-light); font-size: 0.9rem;">
-                Kindly respond by [RSVP Date]
-            </p>
-        </div>
+        <!-- Section 5: Message / Bible Verse -->
+        <section class="snap-section section-message" data-index="4">
+            <div class="snap-section-content">
+                <div class="message-section">
+                    <h3>A Little Note</h3>
+                    <p>
+                        "For this child I prayed, and the Lord has granted me my petition that I made to him."
+                        <br><br>
+                        — 1 Samuel 1:27
+                    </p>
+                </div>
+            </div>
+        </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-hearts">♡ ♡ ♡</div>
-            <p>With love and blessings,</p>
-            <div class="family-name">[Family Name Placeholder]</div>
-            <p style="margin-top: 20px; font-size: 0.8rem;">
-                For inquiries, please contact:<br>
-                [Contact Number Placeholder]
-            </p>
-        </footer>
+        <!-- Section 6: RSVP -->
+        <section class="snap-section section-rsvp" data-index="5">
+            <div class="snap-section-content">
+                <div class="rsvp-section">
+                    <a href="#" class="rsvp-btn">RSVP Now</a>
+                    <p style="margin-top: 15px; color: var(--text-light); font-size: 0.9rem;">
+                        Kindly respond by [RSVP Date]
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Footer -->
+        <section class="snap-section section-footer" data-index="6">
+            <div class="snap-section-content">
+                <footer class="footer">
+                    <div class="footer-hearts">♡ ♡ ♡</div>
+                    <p>With love and blessings,</p>
+                    <div class="family-name">[Family Name Placeholder]</div>
+                    <p style="margin-top: 20px; font-size: 0.8rem;">
+                        For inquiries, please contact:<br>
+                        [Contact Number Placeholder]
+                    </p>
+                </footer>
+            </div>
+        </section>
+
     </div>
 
-    <!-- JavaScript for Countdown Timer -->
+    <!-- JavaScript for Countdown Timer and Snap Navigation -->
     <script>
         // Set the event date (placeholder - update with actual date)
         const eventDate = new Date('2025-03-01T10:00:00').getTime();
@@ -733,33 +1025,69 @@
         updateCountdown();
         setInterval(updateCountdown, 1000);
 
-        // Add intersection observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // Snap Section Visibility Observer
+        const sections = document.querySelectorAll('.snap-section');
+        const dots = document.querySelectorAll('.section-dot');
 
-        const observer = new IntersectionObserver((entries) => {
+        const sectionObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    // Add visible class for animations
+                    entry.target.classList.add('visible');
+
+                    // Update navigation dots
+                    const index = entry.target.dataset.index;
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === parseInt(index));
+                    });
+
+                    // Hide scroll indicator after first section
+                    if (parseInt(index) > 0) {
+                        const scrollIndicator = document.querySelector('.scroll-indicator');
+                        if (scrollIndicator) {
+                            scrollIndicator.style.opacity = '0';
+                        }
+                    }
                 }
             });
-        }, observerOptions);
-
-        // Observe all animated elements
-        document.querySelectorAll('.info-card, .message-section, .rsvp-section').forEach(el => {
-            observer.observe(el);
+        }, {
+            threshold: 0.5,
+            rootMargin: '0px'
         });
 
-        // Remove scroll indicator after scrolling
-        window.addEventListener('scroll', () => {
-            const scrollIndicator = document.querySelector('.scroll-indicator');
-            if (window.scrollY > 100 && scrollIndicator) {
-                scrollIndicator.style.opacity = '0';
-            }
+        sections.forEach(section => {
+            sectionObserver.observe(section);
         });
+
+        // Navigation dots click handler
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const targetIndex = dot.dataset.section;
+                const targetSection = document.querySelector(`.snap-section[data-index="${targetIndex}"]`);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Touch feedback for mobile
+        document.querySelectorAll('.rsvp-btn, .info-card, .section-dot').forEach(el => {
+            el.addEventListener('touchstart', () => {
+                el.style.transform = 'scale(0.98)';
+            });
+            el.addEventListener('touchend', () => {
+                el.style.transform = '';
+            });
+        });
+
+        // Haptic feedback simulation for supported devices
+        if ('vibrate' in navigator) {
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    navigator.vibrate(10);
+                });
+            });
+        }
     </script>
 </body>
 </html>
