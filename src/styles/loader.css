@@ -5,7 +5,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--soft-pink), var(--soft-purple));
+    background: linear-gradient(135deg, var(--blush-pink), var(--rose-pink));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,13 +26,13 @@
 
 .loader-cross {
     font-size: 4rem;
-    color: var(--gold);
+    color: var(--sage-green);
     animation: pulse 1s infinite;
 }
 
 .loader-text {
     font-family: 'Great Vibes', cursive;
     font-size: 1.5rem;
-    color: var(--deep-rose);
+    color: var(--off-white);
     margin-top: 15px;
 }

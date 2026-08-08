@@ -1,12 +1,12 @@
 /* Info Cards */
 .info-card {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(240, 179, 187, 0.85);
     backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 25px;
     margin-bottom: 20px;
-    box-shadow: 0 10px 40px rgba(233, 30, 140, 0.1);
-    border: 1px solid rgba(248, 180, 217, 0.3);
+    box-shadow: 0 10px 40px rgba(240, 179, 187, 0.3);
+    border: 1px solid rgba(221, 236, 217, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     opacity: 0;
 }
@@ -17,13 +17,13 @@
 
 .info-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 50px rgba(233, 30, 140, 0.15);
+    box-shadow: 0 15px 50px rgba(240, 179, 187, 0.4);
 }
 
 .info-card-icon {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, var(--primary-pink), var(--lavender));
+    background: linear-gradient(135deg, var(--cream-yellow), var(--sage-green));
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -35,7 +35,7 @@
 .info-card-title {
     font-family: 'Playfair Display', serif;
     font-size: 0.9rem;
-    color: var(--text-light);
+    color: var(--off-white);
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 8px;
@@ -44,12 +44,12 @@
 .info-card-content {
     font-size: 1.2rem;
     font-weight: 500;
-    color: var(--text-dark);
+    color: var(--off-white);
 }
 
 .info-card-subcontent {
     font-size: 0.95rem;
-    color: var(--text-light);
+    color: var(--off-white);
     margin-top: 5px;
 }
 
@@ -58,7 +58,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: var(--deep-rose);
+    color: var(--cream-yellow);
     text-decoration: none;
     font-size: 0.9rem;
     margin-top: 10px;
@@ -66,5 +66,5 @@
 }
 
 .map-link:hover {
-    color: var(--gold);
+    color: var(--sage-green);
 }

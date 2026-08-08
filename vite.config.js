@@ -14,7 +14,11 @@ export default defineConfig({
   },
   server: {
     port: 3000,
-    open: true
+    open: true,
+    watch: {
+      // Ignore Visual Studio files to prevent EBUSY errors
+      ignored: ['**/.vs/**', '**/node_modules/**', '**/dist/**']
+    }
   },
   preview: {
     port: 4173

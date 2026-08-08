@@ -1,6 +1,6 @@
 /* Countdown Section */
 .countdown-section {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(240, 179, 187, 0.85);
     backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 25px;
@@ -27,7 +27,7 @@
 .countdown-title {
     font-family: 'Playfair Display', serif;
     font-size: 1rem;
-    color: var(--text-light);
+    color: var(--off-white);
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 20px;
@@ -40,7 +40,7 @@
 }
 
 .countdown-item {
-    background: linear-gradient(135deg, var(--soft-pink), var(--lavender));
+    background: linear-gradient(135deg, var(--cream-yellow), var(--sage-green));
     border-radius: 15px;
     padding: 15px 10px;
     min-width: 70px;
@@ -49,13 +49,13 @@
 .countdown-number {
     font-size: 2rem;
     font-weight: 600;
-    color: var(--deep-rose);
+    color: var(--rose-pink);
     display: block;
 }
 
 .countdown-label {
     font-size: 0.7rem;
-    color: var(--text-light);
+    color: var(--rose-pink);
     text-transform: uppercase;
     letter-spacing: 1px;
 }

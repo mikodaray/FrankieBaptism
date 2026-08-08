@@ -1,12 +1,20 @@
 /* CSS Variables / Design Tokens */
 :root {
-    --primary-pink: #f8b4d9;
-    --soft-pink: #fce4ec;
-    --deep-rose: #e91e8c;
-    --lavender: #e1bee7;
-    --soft-purple: #f3e5f5;
-    --gold: #d4af37;
-    --cream: #fffaf0;
-    --text-dark: #4a4a4a;
-    --text-light: #7a7a7a;
+    /* New Color Palette */
+    --cream-yellow: #F7F9EA;      /* Light cream/pale yellow-green */
+    --sage-green: #DDECD9;        /* Soft sage/mint green */
+    --off-white: #FAF8F2;         /* Off-white/cream - for text */
+    --blush-pink: #F9DADE;        /* Light blush pink - main background */
+    --rose-pink: #F0B3BB;         /* Medium rose pink - section backgrounds */
+
+    /* Legacy mappings for compatibility */
+    --primary-pink: #F0B3BB;
+    --soft-pink: #F9DADE;
+    --deep-rose: #F0B3BB;
+    --lavender: #DDECD9;
+    --soft-purple: #F9DADE;
+    --gold: #DDECD9;
+    --cream: #FAF8F2;
+    --text-dark: #FAF8F2;
+    --text-light: #FAF8F2;
 }

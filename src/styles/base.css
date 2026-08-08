@@ -12,8 +12,8 @@ html {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, var(--soft-pink) 0%, var(--soft-purple) 50%, var(--cream) 100%);
+    background: var(--blush-pink);
     min-height: 100vh;
-    color: var(--text-dark);
+    color: var(--off-white);
     overflow-x: hidden;
 }

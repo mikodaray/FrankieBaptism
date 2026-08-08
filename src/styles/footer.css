@@ -11,7 +11,7 @@
 
 .footer-hearts {
     font-size: 1.5rem;
-    color: var(--primary-pink);
+    color: var(--sage-green);
     margin-bottom: 15px;
     animation: heartbeat 1.5s infinite;
 }
@@ -19,13 +19,13 @@
 .footer p {
     font-family: 'Playfair Display', serif;
     font-style: italic;
-    color: var(--text-light);
+    color: var(--off-white);
     font-size: 0.9rem;
 }
 
 .footer .family-name {
     font-family: 'Great Vibes', cursive;
     font-size: 1.8rem;
-    color: var(--deep-rose);
+    color: var(--off-white);
     margin-top: 10px;
 }

@@ -12,15 +12,15 @@
 .rsvp-btn {
     display: inline-block;
     padding: 18px 50px;
-    background: linear-gradient(135deg, var(--deep-rose), var(--primary-pink));
-    color: white;
+    background: linear-gradient(135deg, var(--sage-green), var(--cream-yellow));
+    color: var(--rose-pink);
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
     font-size: 1.1rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    box-shadow: 0 10px 30px rgba(233, 30, 140, 0.3);
+    box-shadow: 0 10px 30px rgba(221, 236, 217, 0.4);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -39,7 +39,7 @@
 
 .rsvp-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(233, 30, 140, 0.4);
+    box-shadow: 0 15px 40px rgba(221, 236, 217, 0.5);
 }
 
 .rsvp-btn:active {
