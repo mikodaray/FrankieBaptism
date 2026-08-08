@@ -14,21 +14,21 @@
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: rgba(221, 236, 217, 0.3);
-    border: 2px solid var(--sage-green);
+    background: rgba(254, 156, 156, 0.3);
+    border: 2px solid var(--soft-pink);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .section-dot:hover {
     transform: scale(1.3);
-    background: var(--cream-yellow);
+    background: var(--pastel-yellow);
 }
 
 .section-dot.active {
-    background: var(--sage-green);
+    background: var(--soft-pink);
     transform: scale(1.2);
-    box-shadow: 0 0 10px rgba(221, 236, 217, 0.5);
+    box-shadow: 0 0 10px rgba(254, 156, 156, 0.5);
 }
 
 /* Swipe indicator for mobile */
@@ -40,7 +40,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: var(--off-white);
+    color: var(--text-light);
     font-size: 0.8rem;
     animation: swipeHint 2s infinite;
 }
@@ -65,7 +65,7 @@
     display: block;
     width: 30px;
     height: 50px;
-    border: 2px solid var(--sage-green);
+    border: 2px solid var(--soft-pink);
     border-radius: 25px;
     position: relative;
 }
@@ -78,7 +78,7 @@
     transform: translateX(-50%);
     width: 6px;
     height: 6px;
-    background: var(--sage-green);
+    background: var(--soft-pink);
     border-radius: 50%;
     animation: scroll 2s infinite;
 }

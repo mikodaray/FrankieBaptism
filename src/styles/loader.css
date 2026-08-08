@@ -5,7 +5,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--blush-pink), var(--rose-pink));
+    background: linear-gradient(135deg, var(--cream), var(--soft-pink));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,14 +25,15 @@
 }
 
 .loader-cross {
-    font-size: 4rem;
-    color: var(--sage-green);
+    width: 4rem;
+    height: auto;
     animation: pulse 1s infinite;
 }
 
 .loader-text {
-    font-family: 'Great Vibes', cursive;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
     font-size: 1.5rem;
-    color: var(--off-white);
+    color: var(--soft-pink);
     margin-top: 15px;
 }

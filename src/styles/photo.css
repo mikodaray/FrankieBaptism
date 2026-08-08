@@ -6,39 +6,13 @@
 }
 
 .snap-section.visible .photo-section {
-    animation: photoReveal 1s ease-out forwards;
+    animation: photoReveal 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 }
 
-.photo-frame {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--rose-pink), var(--sage-green), var(--cream-yellow));
-    padding: 5px;
-    animation: rotate 10s linear infinite;
-}
-
-.photo-inner {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: var(--off-white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: counter-rotate 10s linear infinite;
-    overflow: hidden;
-}
-
-.photo-placeholder {
-    text-align: center;
-    color: var(--rose-pink);
-    font-size: 0.9rem;
-}
-
-.photo-placeholder span {
-    font-size: 3rem;
+.photo-img {
     display: block;
-    margin-bottom: 5px;
+    width: 260px;
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto;
 }

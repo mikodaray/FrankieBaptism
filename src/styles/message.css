@@ -1,11 +1,12 @@
 /* Message Section */
 .message-section {
-    background: linear-gradient(135deg, rgba(240, 179, 187, 0.9), rgba(249, 218, 222, 0.85));
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
     padding: 30px;
     margin: 30px 0;
     text-align: center;
     opacity: 0;
+    border: 2px solid var(--pastel-yellow);
 }
 
 .snap-section.visible .message-section {
@@ -13,15 +14,16 @@
 }
 
 .message-section h3 {
-    font-family: 'Great Vibes', cursive;
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
     font-size: 2rem;
-    color: var(--off-white);
+    color: var(--soft-pink);
     margin-bottom: 15px;
 }
 
 .message-section p {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Fraunces', serif;
     font-style: italic;
-    color: var(--off-white);
+    color: var(--text-dark);
     line-height: 1.8;
 }

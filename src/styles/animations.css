@@ -43,8 +43,8 @@
 }
 
 @keyframes shimmer {
-    0%, 100% { text-shadow: 2px 2px 4px rgba(221, 236, 217, 0.3); }
-    50% { text-shadow: 2px 2px 20px rgba(221, 236, 217, 0.5), 0 0 30px rgba(247, 249, 234, 0.4); }
+    0%, 100% { text-shadow: 2px 2px 4px rgba(254, 156, 156, 0.3); }
+    50% { text-shadow: 2px 2px 20px rgba(254, 156, 156, 0.5), 0 0 30px rgba(249, 231, 159, 0.4); }
 }
 
 @keyframes fadeIn {
@@ -78,8 +78,8 @@
 }
 
 @keyframes photoReveal {
-    from { opacity: 0; transform: scale(0.5) rotate(-20deg); }
-    to { opacity: 1; transform: scale(1) rotate(0deg); }
+    from { opacity: 0; transform: translate(60vw, 60vh) scale(0.5) rotate(15deg); }
+    to { opacity: 1; transform: translate(0, 0) scale(1) rotate(0deg); }
 }
 
 @keyframes messageReveal {

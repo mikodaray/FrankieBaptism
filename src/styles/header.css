@@ -13,34 +13,36 @@
 }
 
 .cross-icon {
-    font-size: 3rem;
-    color: var(--sage-green);
+    width: 3rem;
+    height: auto;
     margin-bottom: 20px;
     animation: pulse 2s infinite;
 }
 
 .invitation-text {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Fraunces', serif;
     font-style: italic;
     font-size: 1.1rem;
-    color: var(--off-white);
+    color: var(--text-light);
     margin-bottom: 10px;
     letter-spacing: 2px;
 }
 
 .baby-name {
-    font-family: 'Great Vibes', cursive;
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
     font-size: 3.5rem;
-    color: var(--off-white);
-    text-shadow: 2px 2px 8px rgba(221, 236, 217, 0.4);
+    color: var(--text-dark);
+    text-shadow: 2px 2px 4px rgba(254, 156, 156, 0.5);
     line-height: 1.2;
     animation: shimmer 3s infinite;
 }
 
 .event-type {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
     font-size: 1.8rem;
-    color: var(--off-white);
+    color: var(--text-dark);
     margin-top: 15px;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -62,11 +64,11 @@
 .divider-line {
     height: 1px;
     width: 80px;
-    background: linear-gradient(90deg, transparent, var(--sage-green), transparent);
+    background: linear-gradient(90deg, transparent, var(--pastel-yellow), transparent);
 }
 
 .divider-icon {
     margin: 0 15px;
-    color: var(--sage-green);
+    color: var(--soft-pink);
     font-size: 1.2rem;
 }

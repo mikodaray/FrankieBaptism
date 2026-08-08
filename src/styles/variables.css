@@ -1,20 +1,28 @@
 /* CSS Variables / Design Tokens */
 :root {
-    /* New Color Palette */
-    --cream-yellow: #F7F9EA;      /* Light cream/pale yellow-green */
-    --sage-green: #DDECD9;        /* Soft sage/mint green */
-    --off-white: #FAF8F2;         /* Off-white/cream - for text */
-    --blush-pink: #F9DADE;        /* Light blush pink - main background */
-    --rose-pink: #F0B3BB;         /* Medium rose pink - section backgrounds */
+    /* Canva-matched palette (coral, cream & pink) */
+    --cream: #F8F6EB;             /* Cream/off-white - main background */
+    --coral: #FE9C9C;             /* Coral/salmon - primary accent, headings */
+    --light-pink: #FFDEDE;        /* Light pink - secondary section backgrounds */
+    --pastel-yellow: #F9E7A0;     /* Pale gold - small accents, sparkles */
+    --deep-coral: #E8797A;        /* Deeper coral - borders, hover states */
 
-    /* Legacy mappings for compatibility */
-    --primary-pink: #F0B3BB;
-    --soft-pink: #F9DADE;
-    --deep-rose: #F0B3BB;
-    --lavender: #DDECD9;
-    --soft-purple: #F9DADE;
-    --gold: #DDECD9;
-    --cream: #FAF8F2;
-    --text-dark: #FAF8F2;
-    --text-light: #FAF8F2;
+    /* Text colors */
+    --text-dark: #333333;         /* Dark gray/near-black for text */
+    --text-light: #7A7A7A;        /* Light gray for secondary text */
+
+    /* Legacy mappings for compatibility - existing CSS references these names,
+       repointed to the new palette above so the whole site re-themes from here */
+    --soft-pink: var(--coral);
+    --baby-blue: var(--light-pink);
+    --sage-green: var(--light-pink);
+    --primary-pink: var(--coral);
+    --deep-rose: var(--deep-coral);
+    --blush-pink: var(--cream);
+    --rose-pink: var(--coral);
+    --lavender: var(--light-pink);
+    --soft-purple: var(--light-pink);
+    --gold: var(--pastel-yellow);
+    --off-white: var(--cream);
+    --cream-yellow: var(--pastel-yellow);
 }

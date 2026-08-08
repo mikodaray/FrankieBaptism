@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#f8b4d9">
+    <meta name="theme-color" content="#fe9c9c">
     <title>Francine Veronica's Christening</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;0,900;1,500;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Envelope Introduction -->
@@ -50,7 +50,7 @@
 
                 <!-- Letter inside -->
                 <div class="letter">
-                    <span class="letter-cross">✝</span>
+                    <img src="images/cross.png" alt="Cross" class="letter-cross">
                     <span class="letter-title">You're Invited</span>
                     <span class="letter-name">Francine Veronica</span>
                     <span class="letter-event">Christening</span>
@@ -61,7 +61,7 @@
 
                 <!-- Wax seal -->
                 <div class="wax-seal">
-                    <span class="wax-seal-icon">✝</span>
+                    <img src="images/cross.png" alt="Cross" class="wax-seal-icon">
                 </div>
             </div>
 
@@ -79,7 +79,7 @@
     <!-- Page Loader (hidden by default, envelope is the intro now) -->
     <div class="page-loader hidden">
         <div class="loader-content">
-            <div class="loader-cross">✝</div>
+            <img src="images/cross.png" alt="Cross" class="loader-cross">
             <div class="loader-text">With Love...</div>
         </div>
     </div>
@@ -98,6 +98,15 @@
         <div class="sparkle"></div>
         <div class="sparkle"></div>
         <div class="sparkle"></div>
+    </div>
+
+    <!-- Floating Balloon Dragons (above section content, below nav/envelope) -->
+    <div class="floating-dragons">
+        <img src="images/dragon-cream.png" alt="" class="dragon-float dragon-1">
+        <img src="images/dragon-mint.png" alt="" class="dragon-float dragon-2">
+        <img src="images/dragon-pink.png" alt="" class="dragon-float dragon-3">
+        <img src="images/dragon-lavender.png" alt="" class="dragon-float dragon-4">
+        <img src="images/dragon-blue.png" alt="" class="dragon-float dragon-5">
     </div>
 
     <!-- Section Navigation Dots -->
@@ -119,9 +128,9 @@
             <div class="snap-section-content">
                 <header class="header">
                     <div class="header-content">
-                        <div class="cross-icon">✝</div>
-                        <p class="invitation-text">You are cordially invited to the Christening of</p>
-                        <h1 class="baby-name">Francine Veronica</h1>
+                        <img src="images/cross.png" alt="Cross" class="cross-icon">
+                        <p class="invitation-text">You are cordially invited to</p>
+                        <h1 class="baby-name">Francine Veronica's</h1>
                         <p class="event-type">Christening</p>
                     </div>
 
@@ -144,14 +153,7 @@
         <section class="snap-section section-photo" data-index="1">
             <div class="snap-section-content">
                 <div class="photo-section">
-                    <div class="photo-frame">
-                        <div class="photo-inner">
-                            <div class="photo-placeholder">
-                                <span>👶</span>
-                                Photo Here
-                            </div>
-                        </div>
-                    </div>
+                    <img src="images/francine.png" alt="Francine Veronica" class="photo-img">
                 </div>
             </div>
 
@@ -166,27 +168,40 @@
         <!-- Section 3: Event Details -->
         <section class="snap-section section-details" data-index="2">
             <div class="snap-section-content">
-                <div class="info-card stagger-1">
-                    <div class="info-card-icon">📅</div>
-                    <div class="info-card-title">When</div>
-                    <div class="info-card-content">[Date Placeholder]</div>
-                    <div class="info-card-subcontent">[Time Placeholder]</div>
-                </div>
+                <div class="when-where-section">
+                    <div class="starburst-badge stagger-1">
+                        <span>When &amp; Where</span>
+                    </div>
 
-                <div class="info-card stagger-2">
-                    <div class="info-card-icon">⛪</div>
-                    <div class="info-card-title">Ceremony</div>
-                    <div class="info-card-content">[Church Name Placeholder]</div>
-                    <div class="info-card-subcontent">[Church Address Placeholder]</div>
-                    <a href="#" class="map-link">📍 View on Map</a>
-                </div>
+                    <div class="when-where-photo-wrap stagger-2">
+                        <div class="arch-outline"></div>
+                        <div class="arch-frame">
+                            <img src="images/francine.png" alt="Francine Veronica" class="arch-photo">
+                        </div>
+                        <div class="name-ribbon">Frankie</div>
+                    </div>
 
-                <div class="info-card stagger-3">
-                    <div class="info-card-icon">🎉</div>
-                    <div class="info-card-title">Reception</div>
-                    <div class="info-card-content">[Venue Name Placeholder]</div>
-                    <div class="info-card-subcontent">[Venue Address Placeholder]</div>
-                    <a href="#" class="map-link">📍 View on Map</a>
+                    <div class="when-where-block stagger-3">
+                        <p class="when-where-label">Date &amp; Time</p>
+                        <p class="when-where-main">[Date Placeholder]</p>
+                        <p class="when-where-sub">[Time Placeholder]</p>
+                    </div>
+
+                    <div class="when-where-row stagger-4">
+                        <div class="when-where-block">
+                            <p class="when-where-label">Ceremony</p>
+                            <p class="when-where-main">[Church Name Placeholder]</p>
+                            <p class="when-where-sub">[Church Address Placeholder]</p>
+                            <a href="#" class="map-link">📍 Map</a>
+                        </div>
+
+                        <div class="when-where-block">
+                            <p class="when-where-label">Reception</p>
+                            <p class="when-where-main">[Venue Name Placeholder]</p>
+                            <p class="when-where-sub">[Venue Address Placeholder]</p>
+                            <a href="#" class="map-link">📍 Map</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -222,11 +237,15 @@
         <section class="snap-section section-message" data-index="4">
             <div class="snap-section-content">
                 <div class="message-section">
-                    <h3>A Little Note</h3>
                     <p>
-                        "For this child I prayed, and the Lord has granted me my petition that I made to him."
+                        "For you created my inmost being; you knit me together in my mother's womb. I praise you because I am fearfully and wonderfully made."
                         <br><br>
-                        — 1 Samuel 1:27
+                        — Psalm 139:13-14
+                    </p>
+                    <p style="margin-top: 25px;">
+                        "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future."
+                        <br><br>
+                        — Jeremiah 29:11
                     </p>
                 </div>
             </div>

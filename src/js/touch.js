@@ -1,7 +1,7 @@
 // Touch Feedback Module
 
 export function initTouchFeedback() {
-    const interactiveElements = document.querySelectorAll('.rsvp-btn, .info-card, .section-dot');
+    const interactiveElements = document.querySelectorAll('.rsvp-btn, .when-where-block, .section-dot');
 
     interactiveElements.forEach(el => {
         el.addEventListener('touchstart', () => {

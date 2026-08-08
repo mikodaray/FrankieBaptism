@@ -10,6 +10,19 @@
     overflow: hidden;
 }
 
+/* Floating dragons sit above the section content (.container is z-index: 1)
+   so they're actually visible drifting across the page, not hidden behind it */
+.floating-dragons {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    overflow: hidden;
+}
+
 .bubble {
     position: absolute;
     border-radius: 50%;
@@ -17,19 +30,19 @@
     animation: float 15s infinite ease-in-out;
 }
 
-.bubble:nth-child(1) { width: 80px; height: 80px; background: var(--sage-green); left: 10%; animation-delay: 0s; }
-.bubble:nth-child(2) { width: 60px; height: 60px; background: var(--cream-yellow); left: 20%; animation-delay: 2s; }
-.bubble:nth-child(3) { width: 100px; height: 100px; background: var(--rose-pink); left: 70%; animation-delay: 4s; }
+.bubble:nth-child(1) { width: 80px; height: 80px; background: var(--soft-pink); left: 10%; animation-delay: 0s; }
+.bubble:nth-child(2) { width: 60px; height: 60px; background: var(--pastel-yellow); left: 20%; animation-delay: 2s; }
+.bubble:nth-child(3) { width: 100px; height: 100px; background: var(--baby-blue); left: 70%; animation-delay: 4s; }
 .bubble:nth-child(4) { width: 40px; height: 40px; background: var(--sage-green); left: 80%; animation-delay: 6s; }
-.bubble:nth-child(5) { width: 70px; height: 70px; background: var(--cream-yellow); left: 50%; animation-delay: 8s; }
-.bubble:nth-child(6) { width: 50px; height: 50px; background: var(--sage-green); left: 30%; animation-delay: 10s; }
+.bubble:nth-child(5) { width: 70px; height: 70px; background: var(--soft-pink); left: 50%; animation-delay: 8s; }
+.bubble:nth-child(6) { width: 50px; height: 50px; background: var(--pastel-yellow); left: 30%; animation-delay: 10s; }
 
 /* Sparkle Animation */
 .sparkle {
     position: absolute;
     width: 10px;
     height: 10px;
-    background: var(--cream-yellow);
+    background: var(--pastel-yellow);
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
     animation: sparkle 2s infinite;
 }
@@ -40,3 +53,27 @@
 .sparkle:nth-child(10) { top: 60%; right: 15%; animation-delay: 1.1s; }
 .sparkle:nth-child(11) { top: 80%; left: 25%; animation-delay: 1.4s; }
 .sparkle:nth-child(12) { top: 70%; right: 30%; animation-delay: 1.7s; }
+
+/* Floating Balloon Dragons */
+.dragon-float {
+    position: absolute;
+    bottom: -200px;
+    opacity: 0;
+    pointer-events: none;
+    animation: floatDragon linear infinite;
+}
+
+.dragon-1 { left: 8%;  width: 90px;  animation-duration: 32s; animation-delay: 0s; }
+.dragon-2 { left: 68%; width: 110px; animation-duration: 38s; animation-delay: 7s; }
+.dragon-3 { left: 30%; width: 80px;  animation-duration: 34s; animation-delay: 14s; }
+.dragon-4 { left: 82%; width: 100px; animation-duration: 40s; animation-delay: 21s; }
+.dragon-5 { left: 48%; width: 95px;  animation-duration: 36s; animation-delay: 28s; }
+
+@keyframes floatDragon {
+    0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+    8% { opacity: 0.9; }
+    30% { transform: translateY(-40vh) translateX(15px) rotate(3deg); }
+    60% { transform: translateY(-80vh) translateX(-15px) rotate(-3deg); }
+    92% { opacity: 0.9; }
+    100% { transform: translateY(-130vh) translateX(10px) rotate(2deg); opacity: 0; }
+}

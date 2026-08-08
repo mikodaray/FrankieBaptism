@@ -1,70 +1,174 @@
-/* Info Cards */
-.info-card {
-    background: rgba(240, 179, 187, 0.85);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 25px;
-    margin-bottom: 20px;
-    box-shadow: 0 10px 40px rgba(240, 179, 187, 0.3);
-    border: 1px solid rgba(221, 236, 217, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0;
+/* When & Where Section */
+.when-where-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
-.snap-section.visible .info-card {
-    animation: cardReveal 0.8s ease-out forwards;
-}
-
-.info-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 50px rgba(240, 179, 187, 0.4);
-}
-
-.info-card-icon {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, var(--cream-yellow), var(--sage-green));
-    border-radius: 50%;
+/* Starburst Badge */
+.starburst-badge {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: var(--coral);
+    clip-path: polygon(50.00% 0.00%, 56.57% 8.52%, 65.45% 2.45%, 69.07% 12.58%, 79.39% 9.55%, 79.70% 20.30%, 90.45% 20.61%, 87.42% 30.93%, 97.55% 34.55%, 91.48% 43.43%, 100.00% 50.00%, 91.48% 56.57%, 97.55% 65.45%, 87.42% 69.07%, 90.45% 79.39%, 79.70% 79.70%, 79.39% 90.45%, 69.07% 87.42%, 65.45% 97.55%, 56.57% 91.48%, 50.00% 100.00%, 43.43% 91.48%, 34.55% 97.55%, 30.93% 87.42%, 20.61% 90.45%, 20.30% 79.70%, 9.55% 79.39%, 12.58% 69.07%, 2.45% 65.45%, 8.52% 56.57%, 0.00% 50.00%, 8.52% 43.43%, 2.45% 34.55%, 12.58% 30.93%, 9.55% 20.61%, 20.30% 20.30%, 20.61% 9.55%, 30.93% 12.58%, 34.55% 2.45%, 43.43% 8.52%);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-}
-
-.info-card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.9rem;
-    color: var(--off-white);
-    text-transform: uppercase;
-    letter-spacing: 2px;
     margin-bottom: 8px;
+    box-shadow: 0 10px 30px rgba(254, 156, 156, 0.4);
+    opacity: 0;
 }
 
-.info-card-content {
-    font-size: 1.2rem;
+.starburst-badge::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    clip-path: polygon(50.00% 6.00%, 55.79% 13.46%, 63.60% 8.15%, 66.80% 17.03%, 75.86% 14.40%, 76.16% 23.84%, 85.60% 24.14%, 82.97% 33.20%, 91.85% 36.40%, 86.54% 44.21%, 94.00% 50.00%, 86.54% 55.79%, 91.85% 63.60%, 82.97% 66.80%, 85.60% 75.86%, 76.16% 76.16%, 75.86% 85.60%, 66.80% 82.97%, 63.60% 91.85%, 55.79% 86.54%, 50.00% 94.00%, 44.21% 86.54%, 36.40% 91.85%, 33.20% 82.97%, 24.14% 85.60%, 23.84% 76.16%, 14.40% 75.86%, 17.03% 66.80%, 8.15% 63.60%, 13.46% 55.79%, 6.00% 50.00%, 13.46% 44.21%, 8.15% 36.40%, 17.03% 33.20%, 14.40% 24.14%, 23.84% 23.84%, 24.14% 14.40%, 33.20% 17.03%, 36.40% 8.15%, 44.21% 13.46%);
+    border: 2px dashed rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+}
+
+.starburst-badge span {
+    position: relative;
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    line-height: 1.2;
+    color: #fff;
+    text-align: center;
+    padding: 0 16px;
+}
+
+.snap-section.visible .starburst-badge {
+    animation: cardReveal 0.8s ease-out forwards;
+}
+
+/* Photo in an arch frame */
+.when-where-photo-wrap {
+    position: relative;
+    width: 160px;
+    height: 200px;
+    margin: 8px 0 14px;
+    opacity: 0;
+}
+
+.snap-section.visible .when-where-photo-wrap {
+    animation: cardReveal 0.8s ease-out forwards;
+}
+
+.arch-outline {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--coral);
+    border-radius: 50% 50% 0 0 / 30% 30% 0 0;
+    z-index: 0;
+}
+
+.arch-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50% 50% 0 0 / 30% 30% 0 0;
+    overflow: hidden;
+    border: 3px solid var(--coral);
+    box-shadow: 0 15px 35px rgba(254, 156, 156, 0.35);
+    background: var(--cream);
+    z-index: 1;
+}
+
+.arch-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.name-ribbon {
+    position: absolute;
+    bottom: -8px;
+    right: -16px;
+    z-index: 2;
+    background: var(--coral);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transform: rotate(-8deg);
+    box-shadow: 0 6px 15px rgba(254, 156, 156, 0.4);
+}
+
+/* Detail text blocks */
+.when-where-block {
+    text-align: center;
+    margin-bottom: 10px;
+    opacity: 0;
+}
+
+.when-where-row {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    opacity: 0;
+}
+
+.when-where-row .when-where-block {
+    flex: 1;
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.snap-section.visible .when-where-block,
+.snap-section.visible .when-where-row {
+    animation: cardReveal 0.8s ease-out forwards;
+}
+
+.when-where-label {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: var(--coral);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+}
+
+.when-where-main {
+    font-size: 1.1rem;
     font-weight: 500;
-    color: var(--off-white);
+    color: var(--text-dark);
 }
 
-.info-card-subcontent {
+.when-where-row .when-where-main {
     font-size: 0.95rem;
-    color: var(--off-white);
-    margin-top: 5px;
+}
+
+.when-where-sub {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 2px;
 }
 
 /* Map Link */
 .map-link {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    color: var(--cream-yellow);
+    gap: 6px;
+    color: var(--coral);
     text-decoration: none;
-    font-size: 0.9rem;
-    margin-top: 10px;
+    font-size: 0.8rem;
+    margin-top: 6px;
     transition: color 0.3s ease;
 }
 
 .map-link:hover {
-    color: var(--sage-green);
+    color: var(--deep-coral);
 }
