@@ -1,0 +1,31 @@
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 30px 20px;
+    opacity: 0;
+}
+
+.snap-section.visible .footer {
+    animation: footerReveal 1s ease-out forwards;
+}
+
+.footer-hearts {
+    font-size: 1.5rem;
+    color: var(--primary-pink);
+    margin-bottom: 15px;
+    animation: heartbeat 1.5s infinite;
+}
+
+.footer p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.footer .family-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8rem;
+    color: var(--deep-rose);
+    margin-top: 10px;
+}

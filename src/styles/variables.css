@@ -1,0 +1,12 @@
+/* CSS Variables / Design Tokens */
+:root {
+    --primary-pink: #f8b4d9;
+    --soft-pink: #fce4ec;
+    --deep-rose: #e91e8c;
+    --lavender: #e1bee7;
+    --soft-purple: #f3e5f5;
+    --gold: #d4af37;
+    --cream: #fffaf0;
+    --text-dark: #4a4a4a;
+    --text-light: #7a7a7a;
+}

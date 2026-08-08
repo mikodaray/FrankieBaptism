@@ -1,0 +1,23 @@
+/* Main CSS Entry Point - Import all style modules */
+@import './variables.css';
+@import './base.css';
+@import './animations.css';
+@import './sections.css';
+@import './navigation.css';
+@import './floating.css';
+@import './header.css';
+@import './cards.css';
+@import './photo.css';
+@import './message.css';
+@import './rsvp.css';
+@import './countdown.css';
+@import './footer.css';
+@import './loader.css';
+@import './envelope.css';
+@import './responsive.css';
+
+/* Main Container */
+.container {
+    position: relative;
+    z-index: 1;
+}

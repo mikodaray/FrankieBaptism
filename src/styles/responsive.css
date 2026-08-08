@@ -1,0 +1,44 @@
+/* Responsive Design */
+@media (max-width: 380px) {
+    .baby-name {
+        font-size: 2.8rem;
+    }
+
+    .countdown-item {
+        min-width: 60px;
+        padding: 12px 8px;
+    }
+
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+
+    /* Responsive envelope */
+    .envelope {
+        width: 280px;
+        height: 190px;
+    }
+
+    .envelope-flap {
+        height: 95px;
+    }
+
+    .letter {
+        width: 240px;
+        height: 150px;
+    }
+
+    .wax-seal {
+        top: 65px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .wax-seal-icon {
+        font-size: 1.5rem;
+    }
+
+    .letter-name {
+        font-size: 1.5rem;
+    }
+}

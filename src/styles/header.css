@@ -1,0 +1,72 @@
+/* Header Section */
+.header {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.header-content {
+    opacity: 0;
+}
+
+.snap-section.visible .header-content {
+    animation: headerReveal 1.2s ease-out forwards;
+}
+
+.cross-icon {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+}
+
+.invitation-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.baby-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    color: var(--deep-rose);
+    text-shadow: 2px 2px 4px rgba(233, 30, 140, 0.2);
+    line-height: 1.2;
+    animation: shimmer 3s infinite;
+}
+
+.event-type {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-top: 15px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+/* Decorative Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+    opacity: 0;
+}
+
+.snap-section.visible .divider {
+    animation: fadeIn 1s ease-out 0.5s forwards;
+}
+
+.divider-line {
+    height: 1px;
+    width: 80px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.divider-icon {
+    margin: 0 15px;
+    color: var(--gold);
+    font-size: 1.2rem;
+}

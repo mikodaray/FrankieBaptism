@@ -1,0 +1,83 @@
+/* Snap Sections */
+.snap-section {
+    min-height: 100vh;
+    min-height: 100dvh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+.snap-section-content {
+    width: 100%;
+    max-width: 480px;
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.snap-section.visible .snap-section-content {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Section-specific animations */
+.snap-section.visible .animate-fade-up {
+    animation: sectionFadeUp 0.8s ease-out forwards;
+}
+
+.snap-section.visible .animate-fade-left {
+    animation: sectionFadeLeft 0.8s ease-out forwards;
+}
+
+.snap-section.visible .animate-fade-right {
+    animation: sectionFadeRight 0.8s ease-out forwards;
+}
+
+.snap-section.visible .animate-zoom {
+    animation: sectionZoom 0.8s ease-out forwards;
+}
+
+.snap-section.visible .animate-rotate {
+    animation: sectionRotate 0.8s ease-out forwards;
+}
+
+/* Staggered children animations */
+.snap-section.visible .stagger-1 { animation-delay: 0.1s; }
+.snap-section.visible .stagger-2 { animation-delay: 0.2s; }
+.snap-section.visible .stagger-3 { animation-delay: 0.3s; }
+.snap-section.visible .stagger-4 { animation-delay: 0.4s; }
+.snap-section.visible .stagger-5 { animation-delay: 0.5s; }
+
+/* Section backgrounds for variety */
+.section-welcome {
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.3) 0%, transparent 70%);
+}
+
+.section-photo {
+    background: radial-gradient(ellipse at top, rgba(248,180,217,0.2) 0%, transparent 60%);
+}
+
+.section-details {
+    background: radial-gradient(ellipse at bottom, rgba(225,190,231,0.2) 0%, transparent 60%);
+}
+
+.section-countdown {
+    background: radial-gradient(ellipse at center, rgba(212,175,55,0.1) 0%, transparent 60%);
+}
+
+.section-message {
+    background: radial-gradient(ellipse at top, rgba(252,228,236,0.3) 0%, transparent 60%);
+}
+
+.section-rsvp {
+    background: radial-gradient(ellipse at center, rgba(233,30,140,0.1) 0%, transparent 60%);
+}
+
+.section-footer {
+    background: radial-gradient(ellipse at bottom, rgba(248,180,217,0.2) 0%, transparent 60%);
+}

@@ -1,0 +1,27 @@
+/* Message Section */
+.message-section {
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(252,228,236,0.9));
+    border-radius: 20px;
+    padding: 30px;
+    margin: 30px 0;
+    text-align: center;
+    opacity: 0;
+}
+
+.snap-section.visible .message-section {
+    animation: messageReveal 1s ease-out forwards;
+}
+
+.message-section h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: var(--deep-rose);
+    margin-bottom: 15px;
+}
+
+.message-section p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--text-light);
+    line-height: 1.8;
+}
