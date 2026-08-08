@@ -15,7 +15,7 @@ body {
     background-color: var(--cream);
     background-image: url('/images/backgroundimage.png');
     background-size: cover;
-    background-position: center;
+    background-position: left center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     min-height: 100vh;
