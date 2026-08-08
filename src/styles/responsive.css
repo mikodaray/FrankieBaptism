@@ -1,4 +1,11 @@
 /* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        background-image: url('/images/backgroundimagemobile.png');
+        background-position: center;
+    }
+}
+
 @media (max-width: 380px) {
     .baby-name {
         font-size: 2.8rem;
