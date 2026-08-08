@@ -72,13 +72,20 @@
     pointer-events: none;
 }
 
-/* Closed envelope - nearly fills the screen while keeping aspect ratio */
+/* Closed envelope - nearly fills the screen while keeping aspect ratio.
+   Only the photo-wrap (envelope + seal) drives the centering so the
+   decoration below can't push the seal off the envelope's center. */
 .closed-envelope-wrap {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: min(92vw, 500px, calc(70vh * 0.773));
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+}
+
+.closed-envelope-photo-wrap {
+    position: relative;
+    width: 100%;
 }
 
 .closed-envelope-img {
@@ -114,7 +121,7 @@
 
 .wax-seal-btn {
     position: absolute;
-    top: 44%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 24%;
@@ -146,23 +153,23 @@
     50% { transform: translate(-50%, -50%) scale(1.05); }
 }
 
-/* Tap instruction */
-.tap-instruction-text {
-    margin-top: 20px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    font-size: 0.85rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--ink-brown);
-    text-align: center;
-    animation: tapPulse 2s infinite;
+/* Bottom decoration image - hangs below the photo-wrap without affecting
+   its height, so the seal stays centered on the envelope itself.
+   The image itself has a lot of empty space above its grass/flower line
+   (butterflies float in from ~12%, the ground line doesn't start until
+   ~55-60% down), so it's pulled up well past its own top edge to tuck
+   that empty space behind the envelope and let the ground line overlap
+   the envelope's bottom edge slightly. */
+.envelope-bottom-decoration {
+    position: absolute;
+    top: 67%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 400px;
+    height: auto;
 }
 
-@keyframes tapPulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.55; }
-}
 
 /* ============ Section 1: Opened envelope with letter (page section) ============ */
 .section-envelope-open .snap-section-content {

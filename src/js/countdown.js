@@ -1,7 +1,7 @@
 // Countdown Timer Module
 
-// Set the event date (update with actual date)
-const EVENT_DATE = new Date('2025-03-01T10:00:00').getTime();
+// Set the event date - September 12, 2026 at 3:00 PM (Philippine Time)
+const EVENT_DATE = new Date('2026-09-12T15:00:00').getTime();
 
 export function initCountdown() {
     updateCountdown();

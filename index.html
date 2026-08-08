@@ -29,12 +29,13 @@
         <!-- Closed envelope with wax seal -->
         <div class="envelope-stage envelope-stage-closed" id="envelopeClosedStage">
             <div class="closed-envelope-wrap">
-                <img src="images/envelope/closed-envelope.png" alt="Envelope" class="closed-envelope-img">
-                <p class="invited-text">You are invited!</p>
-                <button type="button" class="wax-seal-btn" id="waxSealBtn" aria-label="Open invitation">
-                    <img src="images/envelope/wax-seal.png" alt="" class="wax-seal-img">
-                </button>
-                <p class="tap-instruction-text">Click or Tap to open</p>
+                <div class="closed-envelope-photo-wrap">
+                    <img src="images/envelope/closed-envelope.png" alt="Envelope" class="closed-envelope-img">
+                    <button type="button" class="wax-seal-btn" id="waxSealBtn" aria-label="Open invitation">
+                        <img src="images/envelope/wax-seal.png" alt="" class="wax-seal-img">
+                    </button>
+                </div>
+                <img src="images/envelope/closed-envelope-below.png" alt="" class="envelope-bottom-decoration">
             </div>
         </div>
     </div>
@@ -80,7 +81,6 @@
         <div class="section-dot" data-section="3"></div>
         <div class="section-dot" data-section="4"></div>
         <div class="section-dot" data-section="5"></div>
-        <div class="section-dot" data-section="6"></div>
     </nav>
 
     <!-- Main Container with Snap Sections -->
@@ -116,24 +116,8 @@
             </div>
         </section>
 
-        <!-- Section 2: Photo -->
-        <section class="snap-section section-photo" data-index="1">
-            <div class="snap-section-content">
-                <div class="photo-section">
-                    <img src="images/francine.png" alt="Francine Veronica" class="photo-img">
-                </div>
-            </div>
-
-            <div class="swipe-indicator">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12l7 7 7-7"/>
-                </svg>
-                <span>Swipe up</span>
-            </div>
-        </section>
-
-        <!-- Section 3: Event Details -->
-        <section class="snap-section section-details" data-index="2">
+        <!-- Section 2: Event Details -->
+        <section class="snap-section section-details" data-index="1">
             <div class="snap-section-content">
                 <div class="when-where-section">
                     <div class="starburst-badge stagger-1">
@@ -150,31 +134,31 @@
 
                     <div class="when-where-block stagger-3">
                         <p class="when-where-label">Date &amp; Time</p>
-                        <p class="when-where-main">[Date Placeholder]</p>
-                        <p class="when-where-sub">[Time Placeholder]</p>
+                        <p class="when-where-main">September 12, 2026</p>
+                        <p class="when-where-sub">3:00 PM</p>
                     </div>
 
                     <div class="when-where-row stagger-4">
                         <div class="when-where-block">
                             <p class="when-where-label">Ceremony</p>
-                            <p class="when-where-main">[Church Name Placeholder]</p>
-                            <p class="when-where-sub">[Church Address Placeholder]</p>
-                            <a href="#" class="map-link">📍 Map</a>
+                            <p class="when-where-main">Christ the King Parish</p>
+                            <p class="when-where-sub">Greenmeadows, Quezon City</p>
+                            <a href="#" class="map-link" data-location="ceremony" data-address="Christ the King Parish, Greenmeadows, Quezon City">📍 Map</a>
                         </div>
 
                         <div class="when-where-block">
                             <p class="when-where-label">Reception</p>
-                            <p class="when-where-main">[Venue Name Placeholder]</p>
-                            <p class="when-where-sub">[Venue Address Placeholder]</p>
-                            <a href="#" class="map-link">📍 Map</a>
+                            <p class="when-where-main">Buttery &amp; Co.</p>
+                            <p class="when-where-sub">Katipunan Ave, White Plains, Quezon City</p>
+                            <a href="#" class="map-link" data-location="reception" data-address="Buttery & Co. Katipunan Ave, White Plains, Quezon City">📍 Map</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 4: Countdown Timer -->
-        <section class="snap-section section-countdown" data-index="3">
+        <!-- Section 3: Countdown Timer -->
+        <section class="snap-section section-countdown" data-index="2">
             <div class="snap-section-content">
                 <div class="countdown-section">
                     <div class="countdown-title">Counting Down To The Special Day</div>
@@ -200,8 +184,8 @@
             </div>
         </section>
 
-        <!-- Section 5: Message / Bible Verse -->
-        <section class="snap-section section-message" data-index="4">
+        <!-- Section 4: Message / Bible Verse -->
+        <section class="snap-section section-message" data-index="3">
             <div class="snap-section-content">
                 <div class="message-section">
                     <p>
@@ -218,8 +202,8 @@
             </div>
         </section>
 
-        <!-- Section 6: RSVP -->
-        <section class="snap-section section-rsvp" data-index="5">
+        <!-- Section 5: RSVP -->
+        <section class="snap-section section-rsvp" data-index="4">
             <div class="snap-section-content">
                 <div class="rsvp-section">
                     <a href="#" class="rsvp-btn">RSVP Now</a>
@@ -230,8 +214,8 @@
             </div>
         </section>
 
-        <!-- Section 7: Footer -->
-        <section class="snap-section section-footer" data-index="6">
+        <!-- Section 6: Footer -->
+        <section class="snap-section section-footer" data-index="5">
             <div class="snap-section-content">
                 <footer class="footer">
                     <div class="footer-hearts">♡ ♡ ♡</div>
@@ -245,6 +229,24 @@
             </div>
         </section>
 
+    </div>
+
+    <!-- Map Overlay Modal -->
+    <div class="map-overlay" id="mapOverlay">
+        <div class="map-overlay-content">
+            <button class="map-close-btn" id="mapCloseBtn">&times;</button>
+            <div class="map-container">
+                <iframe
+                    id="mapIframe"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    loading="lazy"
+                    allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
     </div>
 
     <!-- Vite Entry Point -->

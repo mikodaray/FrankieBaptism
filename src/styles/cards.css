@@ -167,8 +167,79 @@
     font-size: 0.8rem;
     margin-top: 6px;
     transition: color 0.3s ease;
+    cursor: pointer;
 }
 
 .map-link:hover {
     color: var(--deep-coral);
+}
+
+/* Map Overlay Modal */
+.map-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.map-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.map-overlay-content {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    height: 80vh;
+    max-height: 600px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.map-overlay.active .map-overlay-content {
+    transform: scale(1);
+}
+
+.map-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.map-close-btn:hover {
+    background: var(--light-pink);
+    transform: scale(1.1);
+}
+
+.map-container {
+    width: 100%;
+    height: 100%;
 }
