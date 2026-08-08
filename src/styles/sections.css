@@ -55,6 +55,10 @@
 
 /* Section backgrounds for variety - cream-forward with a soft coral glow,
    matching the reference's mostly-cream fields with coral used as an accent */
+.section-envelope-open {
+    background: radial-gradient(ellipse at center, var(--light-pink) 0%, var(--cream) 35%);
+}
+
 .section-welcome {
     background: radial-gradient(ellipse at center, var(--coral) 0%, var(--cream) 35%);
 }

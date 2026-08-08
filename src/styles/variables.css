@@ -1,15 +1,16 @@
 /* CSS Variables / Design Tokens */
 :root {
-    /* Canva-matched palette (coral, cream & pink) */
-    --cream: #F8F6EB;             /* Cream/off-white - main background */
-    --coral: #FE9C9C;             /* Coral/salmon - primary accent, headings */
-    --light-pink: #FFDEDE;        /* Light pink - secondary section backgrounds */
-    --pastel-yellow: #F9E7A0;     /* Pale gold - small accents, sparkles */
-    --deep-coral: #E8797A;        /* Deeper coral - borders, hover states */
+    /* Silly-goose-matched palette (blush, dusty rose & warm brown ink) */
+    --cream: #FFF3F5;             /* Blush white - main background */
+    --coral: #E0899C;             /* Dusty rose - primary accent, backgrounds */
+    --light-pink: #F6C9D4;        /* Light pink - secondary section backgrounds, gingham */
+    --pastel-yellow: #F0DEC7;     /* Soft champagne - small accents */
+    --deep-coral: #B96C82;        /* Deeper rose - borders, hover states */
+    --ink-brown: #8D5934;         /* Warm brown ink - decorative headings/labels */
 
     /* Text colors */
-    --text-dark: #333333;         /* Dark gray/near-black for text */
-    --text-light: #7A7A7A;        /* Light gray for secondary text */
+    --text-dark: #4A3B33;         /* Warm dark brown-gray for body text */
+    --text-light: #8A7A70;        /* Warm light gray for secondary text */
 
     /* Legacy mappings for compatibility - existing CSS references these names,
        repointed to the new palette above so the whole site re-themes from here */

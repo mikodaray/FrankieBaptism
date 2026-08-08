@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#fe9c9c">
+    <meta name="theme-color" content="#e0899c">
     <title>Francine Veronica's Christening</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;0,900;1,500;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Envelope Introduction -->
@@ -26,54 +26,17 @@
             <span class="bg-heart">♡</span>
         </div>
 
-        <div class="envelope-wrapper">
-            <!-- The Envelope -->
-            <div class="envelope" id="envelope">
-                <!-- Sparkles on open -->
-                <div class="envelope-sparkles">
-                    <div class="envelope-sparkle"></div>
-                    <div class="envelope-sparkle"></div>
-                    <div class="envelope-sparkle"></div>
-                    <div class="envelope-sparkle"></div>
-                    <div class="envelope-sparkle"></div>
-                    <div class="envelope-sparkle"></div>
-                    <div class="envelope-sparkle"></div>
-                    <div class="envelope-sparkle"></div>
-                </div>
-
-                <!-- Envelope body -->
-                <div class="envelope-body">
-                    <div class="envelope-inner-left"></div>
-                    <div class="envelope-inner-right"></div>
-                    <div class="envelope-bottom"></div>
-                </div>
-
-                <!-- Letter inside -->
-                <div class="letter">
-                    <img src="images/cross.png" alt="Cross" class="letter-cross">
-                    <span class="letter-title">You're Invited</span>
-                    <span class="letter-name">Francine Veronica</span>
-                    <span class="letter-event">Christening</span>
-                </div>
-
-                <!-- Flap (opens) -->
-                <div class="envelope-flap"></div>
-
-                <!-- Wax seal -->
-                <div class="wax-seal">
-                    <img src="images/cross.png" alt="Cross" class="wax-seal-icon">
-                </div>
-            </div>
-
-            <!-- Tap instruction -->
-            <div class="tap-instruction" id="tapInstruction">
-                <span class="tap-icon">👆</span>
-                <p>Tap to open</p>
+        <!-- Closed envelope with wax seal -->
+        <div class="envelope-stage envelope-stage-closed" id="envelopeClosedStage">
+            <div class="closed-envelope-wrap">
+                <img src="images/envelope/closed-envelope.png" alt="Envelope" class="closed-envelope-img">
+                <p class="invited-text">You are invited!</p>
+                <button type="button" class="wax-seal-btn" id="waxSealBtn" aria-label="Open invitation">
+                    <img src="images/envelope/wax-seal.png" alt="" class="wax-seal-img">
+                </button>
+                <p class="tap-instruction-text">Click or Tap to open</p>
             </div>
         </div>
-
-        <!-- Continue button -->
-        <button class="continue-btn" id="continueBtn">View Invitation</button>
     </div>
 
     <!-- Page Loader (hidden by default, envelope is the intro now) -->
@@ -123,24 +86,28 @@
     <!-- Main Container with Snap Sections -->
     <div class="container">
 
-        <!-- Section 1: Welcome / Header -->
-        <section class="snap-section section-welcome visible" data-index="0">
+        <!-- Section 1: Opened envelope with letter and invitation -->
+        <section class="snap-section section-envelope-open visible" data-index="0">
             <div class="snap-section-content">
-                <header class="header">
-                    <div class="header-content">
-                        <img src="images/cross.png" alt="Cross" class="cross-icon">
-                        <p class="invitation-text">You are cordially invited to</p>
-                        <h1 class="baby-name">Francine Veronica's</h1>
-                        <p class="event-type">Christening</p>
+                <div class="envelope-open-visual">
+                    <img src="images/envelope/open-envelope.png" alt="Envelope" class="open-envelope-photo">
+                    <div class="letter-card">
+                        <img src="images/envelope/blank-letter.png" alt="" class="blank-letter-img">
+                        <img src="images/baptismpool-wobg.png" alt="" class="baptism-pool-decoration">
+                        <div class="letter-content">
+                            <img src="images/cross.png" alt="Cross" class="letter-cross-icon">
+                            <p class="letter-invitation-text">You are cordially invited to</p>
+                            <h1 class="letter-baby-name">Francine Veronica's</h1>
+                            <p class="letter-event-type">Christening</p>
+                            <div class="letter-divider">
+                                <div class="letter-divider-line"></div>
+                                <span class="letter-divider-icon">♡</span>
+                                <div class="letter-divider-line"></div>
+                            </div>
+                        </div>
                     </div>
-
-                    <!-- Divider -->
-                    <div class="divider">
-                        <div class="divider-line"></div>
-                        <span class="divider-icon">♡</span>
-                        <div class="divider-line"></div>
-                    </div>
-                </header>
+                    <img src="images/frankiebible.png" alt="Francine Veronica" class="frankie-bible-img">
+                </div>
             </div>
 
             <!-- Scroll Indicator -->

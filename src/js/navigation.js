@@ -3,6 +3,7 @@
 export function initSnapNavigation() {
     const sections = document.querySelectorAll('.snap-section');
     const dots = document.querySelectorAll('.section-dot');
+    const dragonsLayer = document.querySelector('.floating-dragons');
 
     if (sections.length === 0) {
         console.warn('No snap sections found');
@@ -28,6 +29,12 @@ export function initSnapNavigation() {
                     if (scrollIndicator) {
                         scrollIndicator.style.opacity = '0';
                     }
+                }
+
+                // Keep the floating dragons off the opened-envelope/letter section
+                // so they never cover the poem text
+                if (dragonsLayer) {
+                    dragonsLayer.classList.toggle('dragons-hidden', parseInt(index) === 0);
                 }
             }
         });

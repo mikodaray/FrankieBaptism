@@ -12,11 +12,3 @@ document.addEventListener('DOMContentLoaded', () => {
     initSnapNavigation();
     initTouchFeedback();
 });
-
-// Add entrance animation on full page load
-window.addEventListener('load', () => {
-    const envelope = document.getElementById('envelope');
-    if (envelope) {
-        envelope.style.animation = 'envelopeEntrance 1s ease-out';
-    }
-});

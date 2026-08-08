@@ -21,6 +21,13 @@
     pointer-events: none;
     z-index: 2;
     overflow: hidden;
+    transition: opacity 0.5s ease;
+}
+
+/* Hidden while the opened-envelope/letter section is in view so a dragon
+   never drifts across the poem text */
+.floating-dragons.dragons-hidden {
+    opacity: 0;
 }
 
 .bubble {

@@ -14,11 +14,10 @@
 }
 
 .message-section h3 {
-    font-family: 'Fraunces', serif;
-    font-weight: 800;
-    font-size: 2rem;
-    color: var(--soft-pink);
-    margin-bottom: 15px;
+    font-family: 'Alex Brush', cursive;
+    font-size: 2.8rem;
+    color: var(--ink-brown);
+    margin-bottom: 10px;
 }
 
 .message-section p {
