@@ -63,11 +63,11 @@
     animation: floatDragon linear infinite;
 }
 
-.dragon-1 { left: 8%;  width: 90px;  animation-duration: 32s; animation-delay: 0s; }
-.dragon-2 { left: 68%; width: 110px; animation-duration: 38s; animation-delay: 7s; }
-.dragon-3 { left: 30%; width: 80px;  animation-duration: 34s; animation-delay: 14s; }
-.dragon-4 { left: 82%; width: 100px; animation-duration: 40s; animation-delay: 21s; }
-.dragon-5 { left: 48%; width: 95px;  animation-duration: 36s; animation-delay: 28s; }
+.dragon-1 { left: 2%;   width: 90px;  animation-duration: 32s; animation-delay: 0s; }
+.dragon-2 { right: 3%;  width: 110px; animation-duration: 38s; animation-delay: 7s; }
+.dragon-3 { left: 9%;   width: 80px;  animation-duration: 34s; animation-delay: 14s; }
+.dragon-4 { right: 10%; width: 100px; animation-duration: 40s; animation-delay: 21s; }
+.dragon-5 { left: 16%;  width: 95px;  animation-duration: 36s; animation-delay: 28s; }
 
 @keyframes floatDragon {
     0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }

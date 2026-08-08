@@ -60,10 +60,10 @@
 
 .arch-outline {
     position: absolute;
-    top: -10px;
-    left: 10px;
-    width: 100%;
-    height: 100%;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
     border: 2px solid var(--coral);
     border-radius: 50% 50% 0 0 / 30% 30% 0 0;
     z-index: 0;
