@@ -229,7 +229,7 @@
         <section class="snap-section section-rsvp" data-index="5">
             <div class="snap-section-content">
                 <div class="rsvp-section">
-                    <a href="#" class="rsvp-btn">RSVP Now</a>
+                    <button type="button" class="rsvp-btn" id="rsvpBtn">RSVP Now</button>
                     <p style="margin-top: 15px; color: var(--text-light); font-size: 0.9rem;">
                         Kindly respond by [RSVP Date]
                     </p>
@@ -269,6 +269,26 @@
                     referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
+        </div>
+    </div>
+
+    <!-- RSVP Modal -->
+    <div class="rsvp-overlay" id="rsvpOverlay">
+        <div class="rsvp-overlay-content">
+            <button type="button" class="rsvp-close-btn" id="rsvpCloseBtn" aria-label="Close">&times;</button>
+            <img src="images/waving frankie.png" alt="Francine Veronica waving" class="rsvp-modal-img">
+            <h3 class="rsvp-modal-title">See you there!</h3>
+            <form class="rsvp-form" id="rsvpForm">
+                <label class="rsvp-field">
+                    <span class="rsvp-field-label">Your Name</span>
+                    <input type="text" name="guestName" placeholder="Enter your name" required>
+                </label>
+                <label class="rsvp-checkbox-row">
+                    <input type="checkbox" name="bringingCar">
+                    <span>I&rsquo;ll be bringing a car</span>
+                </label>
+                <button type="submit" class="rsvp-submit-btn">Confirm RSVP</button>
+            </form>
         </div>
     </div>
 

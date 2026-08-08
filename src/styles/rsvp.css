@@ -46,3 +46,166 @@
 .rsvp-btn:active {
     transform: translateY(0);
 }
+
+/* RSVP Modal */
+.rsvp-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.rsvp-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.rsvp-overlay-content {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: var(--cream);
+    border-radius: 20px;
+    padding: 30px 25px 25px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.rsvp-overlay.active .rsvp-overlay-content {
+    transform: scale(1);
+}
+
+.rsvp-close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    line-height: 1;
+    color: var(--text-dark);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.rsvp-close-btn:hover {
+    background: var(--light-pink);
+    transform: scale(1.1);
+}
+
+.rsvp-modal-img {
+    width: 140px;
+    height: auto;
+    margin: 0 auto 10px;
+    display: block;
+}
+
+.rsvp-modal-title {
+    font-family: 'Alex Brush', cursive;
+    font-size: 2.4rem;
+    color: var(--ink-brown);
+    margin-bottom: 20px;
+}
+
+.rsvp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    text-align: left;
+}
+
+.rsvp-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.rsvp-field-label {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--coral);
+}
+
+.rsvp-field input[type="text"] {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    padding: 12px 14px;
+    border: 2px solid var(--light-pink);
+    border-radius: 10px;
+    background: #fff;
+    color: var(--text-dark);
+    transition: border-color 0.2s ease;
+}
+
+.rsvp-field input[type="text"]:focus {
+    outline: none;
+    border-color: var(--coral);
+}
+
+.rsvp-checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
+.rsvp-checkbox-row input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--coral);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.rsvp-submit-btn {
+    margin-top: 6px;
+    padding: 14px 30px;
+    background: linear-gradient(135deg, var(--soft-pink), var(--baby-blue));
+    color: white;
+    border: 2px solid var(--pastel-yellow);
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 10px 25px rgba(254, 156, 156, 0.4);
+}
+
+.rsvp-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(254, 156, 156, 0.5);
+}
+
+.rsvp-submit-btn:active {
+    transform: translateY(0);
+}

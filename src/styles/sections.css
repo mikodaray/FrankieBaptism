@@ -54,35 +54,36 @@
 .snap-section.visible .stagger-5 { animation-delay: 0.5s; }
 
 /* Section backgrounds for variety - cream-forward with a soft coral glow,
-   matching the reference's mostly-cream fields with coral used as an accent */
+   matching the reference's mostly-cream fields with coral used as an accent.
+   Semi-transparent so the fixed body background image shows through. */
 .section-envelope-open {
-    background: radial-gradient(ellipse at center, var(--light-pink) 0%, var(--cream) 35%);
+    background: radial-gradient(ellipse at center, rgba(246, 201, 212, 0.8) 0%, rgba(255, 243, 245, 0.88) 35%);
 }
 
 .section-welcome {
-    background: radial-gradient(ellipse at center, var(--coral) 0%, var(--cream) 35%);
+    background: radial-gradient(ellipse at center, rgba(224, 137, 156, 0.7) 0%, rgba(255, 243, 245, 0.88) 35%);
 }
 
 .section-photo {
-    background: radial-gradient(ellipse at top, var(--pastel-yellow) 0%, var(--cream) 30%);
+    background: radial-gradient(ellipse at top, rgba(240, 222, 199, 0.75) 0%, rgba(255, 243, 245, 0.88) 30%);
 }
 
 .section-details {
-    background: radial-gradient(ellipse at bottom, var(--light-pink) 0%, var(--cream) 35%);
+    background: radial-gradient(ellipse at bottom, rgba(246, 201, 212, 0.8) 0%, rgba(255, 243, 245, 0.88) 35%);
 }
 
 .section-countdown {
-    background: radial-gradient(ellipse at center, var(--light-pink) 0%, var(--cream) 30%);
+    background: radial-gradient(ellipse at center, rgba(246, 201, 212, 0.8) 0%, rgba(255, 243, 245, 0.88) 30%);
 }
 
 .section-message {
-    background: radial-gradient(ellipse at top, var(--coral) 0%, var(--cream) 35%);
+    background: radial-gradient(ellipse at top, rgba(224, 137, 156, 0.7) 0%, rgba(255, 243, 245, 0.88) 35%);
 }
 
 .section-rsvp {
-    background: radial-gradient(ellipse at center, var(--pastel-yellow) 0%, var(--cream) 30%);
+    background: radial-gradient(ellipse at center, rgba(240, 222, 199, 0.75) 0%, rgba(255, 243, 245, 0.88) 30%);
 }
 
 .section-footer {
-    background: radial-gradient(ellipse at bottom, var(--light-pink) 0%, var(--cream) 35%);
+    background: radial-gradient(ellipse at bottom, rgba(246, 201, 212, 0.8) 0%, rgba(255, 243, 245, 0.88) 35%);
 }
