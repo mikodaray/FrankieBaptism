@@ -60,6 +60,10 @@
     background: radial-gradient(ellipse at center, rgba(246, 201, 212, 0.8) 0%, rgba(255, 243, 245, 0.88) 35%);
 }
 
+.section-frankie-church {
+    background: radial-gradient(ellipse at center, rgba(240, 222, 199, 0.75) 0%, rgba(255, 243, 245, 0.88) 40%);
+}
+
 .section-welcome {
     background: radial-gradient(ellipse at center, rgba(224, 137, 156, 0.7) 0%, rgba(255, 243, 245, 0.88) 35%);
 }
