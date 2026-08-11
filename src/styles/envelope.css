@@ -121,7 +121,7 @@
 
 .wax-seal-btn {
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 24%;
@@ -206,7 +206,7 @@
 /* Letter and other images fade in 1.5 seconds after envelope */
 .letter-card {
     position: relative;
-    width: min(85vw, 420px);
+    width: min(92vw, 460px);
     z-index: 2;
     margin: 0 auto;
     opacity: 0;
@@ -238,13 +238,6 @@
     }
 }
 
-.letter-card {
-    position: relative;
-    width: min(85vw, 420px);
-    z-index: 2;
-    margin: 0 auto;
-}
-
 .blank-letter-img {
     display: block;
     width: 100%;
@@ -255,7 +248,7 @@
 .baptism-pool-decoration {
     position: absolute;
     bottom: -2%;
-    right: -20%;
+    right: -30%;
     width: 70%;
     height: auto;
     z-index: 3;
@@ -264,65 +257,3 @@
     animation: fadeInFromBelow 1.5s ease-out 1.5s forwards;
 }
 
-.letter-content {
-    position: absolute;
-    inset: 5% 5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.letter-cross-icon {
-    width: clamp(50px, 12vw, 80px);
-    height: auto;
-    margin-bottom: 15px;
-    opacity: 0.9;
-}
-
-.letter-invitation-text {
-    font-family: 'Poppins', sans-serif;
-    font-size: clamp(0.85rem, 3.5vw, 1.2rem);
-    font-weight: 400;
-    color: var(--ink-brown);
-    letter-spacing: 1.5px;
-    margin-bottom: 12px;
-}
-
-.letter-baby-name {
-    font-family: 'Alex Brush', cursive;
-    font-size: clamp(2.2rem, 8vw, 3.8rem);
-    color: var(--soft-pink);
-    line-height: 1.1;
-    margin-bottom: 10px;
-}
-
-.letter-event-type {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(1.1rem, 4vw, 1.8rem);
-    font-weight: 500;
-    color: var(--ink-brown);
-    letter-spacing: 4px;
-    text-transform: uppercase;
-}
-
-.letter-divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 20px;
-    width: 85%;
-}
-
-.letter-divider-line {
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--soft-pink), transparent);
-}
-
-.letter-divider-icon {
-    font-size: 1.1rem;
-    color: var(--soft-pink);
-}

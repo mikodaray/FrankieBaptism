@@ -13,7 +13,7 @@ export default defineConfig({
     minify: 'esbuild'
   },
   server: {
-    port: 3000,
+    port: 4300,
     open: true,
     watch: {
       // Ignore Visual Studio files to prevent EBUSY errors

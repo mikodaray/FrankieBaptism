@@ -3,7 +3,7 @@
 export function initSnapNavigation() {
     const sections = document.querySelectorAll('.snap-section');
     const dots = document.querySelectorAll('.section-dot');
-    const dragonsLayer = document.querySelector('.floating-dragons');
+    const balloonsLayer = document.querySelector('.floating-balloons');
 
     if (sections.length === 0) {
         console.warn('No snap sections found');
@@ -31,10 +31,10 @@ export function initSnapNavigation() {
                     }
                 }
 
-                // Keep the floating dragons off the opened-envelope/letter section
+                // Keep the floating balloon babies off the opened-envelope/letter section
                 // so they never cover the poem text
-                if (dragonsLayer) {
-                    dragonsLayer.classList.toggle('dragons-hidden', parseInt(index) === 0);
+                if (balloonsLayer) {
+                    balloonsLayer.classList.toggle('balloons-hidden', parseInt(index) === 0);
                 }
             }
         });

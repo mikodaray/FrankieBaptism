@@ -10,9 +10,9 @@
     overflow: hidden;
 }
 
-/* Floating dragons sit above the section content (.container is z-index: 1)
+/* Floating balloon babies sit above the section content (.container is z-index: 1)
    so they're actually visible drifting across the page, not hidden behind it */
-.floating-dragons {
+.floating-balloons {
     position: fixed;
     top: 0;
     left: 0;
@@ -24,9 +24,9 @@
     transition: opacity 0.5s ease;
 }
 
-/* Hidden while the opened-envelope/letter section is in view so a dragon
+/* Hidden while the opened-envelope/letter section is in view so a balloon baby
    never drifts across the poem text */
-.floating-dragons.dragons-hidden {
+.floating-balloons.balloons-hidden {
     opacity: 0;
 }
 
@@ -61,22 +61,22 @@
 .sparkle:nth-child(11) { top: 80%; left: 25%; animation-delay: 1.4s; }
 .sparkle:nth-child(12) { top: 70%; right: 30%; animation-delay: 1.7s; }
 
-/* Floating Balloon Dragons */
-.dragon-float {
+/* Floating Balloon Babies */
+.balloon-float {
     position: absolute;
     bottom: -200px;
     opacity: 0;
     pointer-events: none;
-    animation: floatDragon linear infinite;
+    animation: floatBalloon linear infinite;
 }
 
-.dragon-1 { left: 2%;   width: 90px;  animation-duration: 32s; animation-delay: 0s; }
-.dragon-2 { right: 3%;  width: 110px; animation-duration: 38s; animation-delay: 7s; }
-.dragon-3 { left: 9%;   width: 80px;  animation-duration: 34s; animation-delay: 14s; }
-.dragon-4 { right: 10%; width: 100px; animation-duration: 40s; animation-delay: 21s; }
-.dragon-5 { left: 16%;  width: 95px;  animation-duration: 36s; animation-delay: 28s; }
+.balloon-1 { left: 2%;   width: 180px; animation-duration: 32s; animation-delay: 0s; }
+.balloon-2 { right: 3%;  width: 220px; animation-duration: 38s; animation-delay: 7s; }
+.balloon-3 { left: 9%;   width: 160px; animation-duration: 34s; animation-delay: 14s; }
+.balloon-4 { right: 10%; width: 200px; animation-duration: 40s; animation-delay: 21s; }
+.balloon-5 { left: 16%;  width: 190px; animation-duration: 36s; animation-delay: 28s; }
 
-@keyframes floatDragon {
+@keyframes floatBalloon {
     0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
     8% { opacity: 0.9; }
     30% { transform: translateY(-40vh) translateX(15px) rotate(3deg); }
