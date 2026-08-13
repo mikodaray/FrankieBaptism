@@ -147,8 +147,12 @@
                     <img src="images/details-section/frankiechristeningtitle.png" alt="Frankie's Christening" class="detail-title">
                     <img src="images/details-section/potchi.png" alt="Potchi" class="detail-potchi">
                     <img src="images/details-section/chewy.png" alt="Chewy" class="detail-chewy">
-                    <img src="images/details-section/frankieandmap.png" alt="" class="detail-map">
-                    <img src="images/details-section/closebook.png" alt="" class="detail-book">
+                    <button type="button" class="detail-map-btn map-link" id="detailMapBtn" data-location="ceremony" aria-label="See where">
+                        <img src="images/details-section/frankieandmap.png" alt="" class="detail-map-img">
+                    </button>
+                    <button type="button" class="detail-book-btn" id="detailBookBtn" aria-label="See date and time">
+                        <img src="images/details-section/closebook.png" alt="" class="detail-book-img">
+                    </button>
                 </div>
             </div>
         </section>
@@ -325,6 +329,14 @@
                 </label>
                 <button type="submit" class="rsvp-submit-btn">Confirm RSVP</button>
             </form>
+        </div>
+    </div>
+
+    <!-- Book Overlay Modal -->
+    <div class="book-overlay" id="bookOverlay">
+        <div class="book-overlay-content">
+            <button type="button" class="book-close-btn" id="bookCloseBtn" aria-label="Close">&times;</button>
+            <img src="images/details-section/openbook.png" alt="September 12, 2026 at 3:00 PM" class="book-overlay-img">
         </div>
     </div>
 

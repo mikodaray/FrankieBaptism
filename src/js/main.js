@@ -7,6 +7,7 @@ import { initTouchFeedback } from './touch.js';
 import { initMapOverlay } from './map.js';
 import { initRsvpModal } from './rsvp.js';
 import { initFrameSlideshow } from './frameSlideshow.js';
+import { initDetailCollage } from './detailCollage.js';
 
 // Initialize all modules when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -17,4 +18,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initMapOverlay();
     initRsvpModal();
     initFrameSlideshow();
+    initDetailCollage();
 });
