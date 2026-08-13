@@ -1,0 +1,97 @@
+/* Details Collage Section - frame dead center, title perched on top of it,
+   Potchi & Chewy flanking it, map/book stacked below them. All six pieces
+   are centered on the same point via top:50%/left:50%, then nudged away
+   from that center with a translate() offset - keeps every element's
+   position relative to the frame easy to reason about and retune. */
+.detail-visual {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(94vw, 600px);
+    aspect-ratio: 1 / 1.06;
+}
+
+.detail-frame-wrap,
+.detail-title,
+.detail-potchi,
+.detail-chewy,
+.detail-map,
+.detail-book {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: auto;
+}
+
+.detail-frame-wrap {
+    width: 80%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.detail-frame {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+    z-index: 2;
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.15));
+}
+
+/* Photo window cut into frame.png - percentages measured from the
+   transparent opening in the source artwork (1024x1024 canvas). */
+.detail-frame-slideshow {
+    position: absolute;
+    left: 27.7%;
+    top: 20.9%;
+    width: 44.9%;
+    height: 63.6%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.frame-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+.frame-slide.active {
+    opacity: 1;
+}
+
+.detail-title {
+    width: 40%;
+    transform: translate(-50%, calc(-50% - min(34vw, 230px)));
+    z-index: 5;
+}
+
+.detail-potchi {
+    width: 30%;
+    transform: translate(calc(-50% - min(25vw, 173px)), -50%);
+    z-index: 2;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+}
+
+.detail-chewy {
+    width: 26%;
+    transform: translate(calc(-50% + min(23vw, 161px)), -50%);
+    z-index: 2;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+}
+
+.detail-map {
+    z-index: 5;
+    width: 30%;
+    transform: translate(calc(-50% - min(25vw, 173px)), calc(-50% + min(28vw, 189px)));
+}
+
+.detail-book {
+    z-index: 5;
+    width: 40%;
+    transform: translate(calc(-50% + min(23vw, 161px)), calc(-50% + min(30vw, 189px)));
+}

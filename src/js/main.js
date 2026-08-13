@@ -6,6 +6,7 @@ import { initSnapNavigation } from './navigation.js';
 import { initTouchFeedback } from './touch.js';
 import { initMapOverlay } from './map.js';
 import { initRsvpModal } from './rsvp.js';
+import { initFrameSlideshow } from './frameSlideshow.js';
 
 // Initialize all modules when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,4 +16,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initTouchFeedback();
     initMapOverlay();
     initRsvpModal();
+    initFrameSlideshow();
 });
