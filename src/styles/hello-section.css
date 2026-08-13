@@ -61,3 +61,19 @@
     height: auto;
     filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.15));
 }
+
+/* Mobile's clamp() minimum was winning out at a flat 1rem. The poem's
+   lines are long enough that past ~24px on a 375px-wide phone they wrap
+   onto extra lines, which is what actually blows past one screen (not a
+   smooth size increase) - so this is bounded by both vw (stays under
+   that wrap point) and vh (shrinks further on short screens) together,
+   with a smaller illustration alongside to leave more room for text. */
+@media (max-width: 768px) {
+    .hello-poem {
+        font-size: clamp(1rem, min(6.3vw, 3.1vh), 2.3rem);
+    }
+
+    .hello-visual {
+        width: min(58vw, 600px, calc(40vh * 1.5));
+    }
+}

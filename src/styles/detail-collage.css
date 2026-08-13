@@ -158,8 +158,9 @@
     animation: detailMapPop 0.6s ease;
 }
 
-/* Book Overlay Modal - full-screen popup showing the open book */
-.book-overlay {
+/* Detail Popup Overlay - shared by the book and church-location popups:
+   full-screen dark backdrop, a scale-in card, and a round (x) close button. */
+.detail-popup-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -176,12 +177,12 @@
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.book-overlay.active {
+.detail-popup-overlay.active {
     opacity: 1;
     visibility: visible;
 }
 
-.book-overlay-content {
+.detail-popup-content {
     position: relative;
     width: 100%;
     max-width: 520px;
@@ -189,11 +190,11 @@
     transition: transform 0.3s ease;
 }
 
-.book-overlay.active .book-overlay-content {
+.detail-popup-overlay.active .detail-popup-content {
     transform: scale(1);
 }
 
-.book-close-btn {
+.detail-popup-close {
     position: absolute;
     top: -14px;
     right: -14px;
@@ -214,14 +215,81 @@
     z-index: 1;
 }
 
-.book-close-btn:hover {
+.detail-popup-close:hover {
     background: var(--light-pink);
     transform: scale(1.1);
 }
 
-.book-overlay-img {
+.detail-popup-media {
+    position: relative;
+}
+
+.detail-popup-img {
     display: block;
     width: 100%;
     height: auto;
     filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.4));
+}
+
+.detail-popup-address {
+    margin-top: 46px;
+    text-align: center;
+}
+
+.detail-popup-address-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.detail-popup-address-line {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+/* Reception button - floats over the bottom edge of the church popup,
+   shaking to draw attention. Clicking it swaps the popup photo. */
+.reception-btn {
+    position: absolute;
+    bottom: -8%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 26%;
+    max-width: 150px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.reception-btn-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.35));
+    animation: receptionShake 2.6s ease-in-out infinite;
+}
+
+.reception-btn.clicked .reception-btn-img {
+    animation: receptionEnlarge 0.5s ease;
+}
+
+@keyframes receptionShake {
+    0%, 100% { transform: rotate(0deg); }
+    5% { transform: rotate(-8deg); }
+    15% { transform: rotate(8deg); }
+    25% { transform: rotate(-6deg); }
+    35% { transform: rotate(6deg); }
+    45% { transform: rotate(-3deg); }
+    55% { transform: rotate(0deg); }
+}
+
+@keyframes receptionEnlarge {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.5); }
+    100% { transform: scale(1); }
 }

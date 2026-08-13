@@ -65,7 +65,7 @@
 }
 
 .section-detail-collage {
-    background: radial-gradient(ellipse at center, rgba(246, 201, 212, 0.6) 0%, rgba(255, 243, 245, 0.85) 42%);
+    background: var(--light-pink);
 }
 
 .section-frankie-church {
