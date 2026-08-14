@@ -4,19 +4,16 @@
 @import './animations.css';
 @import './sections.css';
 @import './navigation.css';
+@import './music.css';
 @import './floating.css';
 @import './header.css';
 @import './cards.css';
 @import './photo.css';
-@import './message.css';
-@import './rsvp.css';
-@import './countdown.css';
-@import './footer.css';
 @import './loader.css';
 @import './envelope.css';
-@import './hello-section.css';
 @import './detail-collage.css';
-@import './frankie-church.css';
+@import './family-section.css';
+@import './rsvp.css';
 @import './responsive.css';
 
 /* Main Container */

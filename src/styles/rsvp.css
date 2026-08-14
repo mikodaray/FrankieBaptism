@@ -1,52 +1,3 @@
-/* RSVP Button */
-.rsvp-section {
-    text-align: center;
-    margin: 40px 0;
-    opacity: 0;
-}
-
-.snap-section.visible .rsvp-section {
-    animation: rsvpReveal 1s ease-out forwards;
-}
-
-.rsvp-btn {
-    display: inline-block;
-    padding: 18px 50px;
-    background: linear-gradient(135deg, var(--soft-pink), var(--baby-blue));
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    box-shadow: 0 10px 30px rgba(254, 156, 156, 0.4);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    border: 2px solid var(--pastel-yellow);
-}
-
-.rsvp-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    animation: shine 2s infinite;
-}
-
-.rsvp-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(254, 156, 156, 0.5);
-}
-
-.rsvp-btn:active {
-    transform: translateY(0);
-}
-
 /* RSVP Modal */
 .rsvp-overlay {
     position: fixed;
@@ -70,17 +21,12 @@
     visibility: visible;
 }
 
+/* The card is the rsvpletter.png artwork itself (a square canvas with the
+   drawn card inset within it) - the content box matches its aspect ratio. */
 .rsvp-overlay-content {
     position: relative;
-    width: 100%;
-    max-width: 380px;
-    max-height: 90vh;
-    overflow-y: auto;
-    background: var(--cream);
-    border-radius: 20px;
-    padding: 30px 25px 25px;
-    text-align: center;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    width: min(88vw, 380px);
+    aspect-ratio: 1 / 1;
     transform: scale(0.9);
     transition: transform 0.3s ease;
 }
@@ -89,16 +35,41 @@
     transform: scale(1);
 }
 
+/* The interactive fields are padded to sit inside the printed card,
+   clearing the "RSVP" title art prints near the top. This padding lives on
+   its own wrapper (rather than directly on .rsvp-overlay-content) because
+   percentage padding resolves against the CONTAINING BLOCK's width - on
+   .rsvp-overlay-content that would be .rsvp-overlay (full viewport width),
+   ballooning the padding on wide screens. Here it correctly resolves
+   against .rsvp-overlay-content's own 380px-capped width instead.
+   position:relative is required too: .rsvp-letter-bg is a positioned
+   element (absolute), and any positioned element paints above ALL
+   non-positioned in-flow content regardless of DOM order - without this,
+   the opaque letter art would cover the fields completely. */
+.rsvp-form-fields {
+    position: relative;
+    padding: 28% 16% 12%;
+    box-sizing: border-box;
+}
+
+.rsvp-letter-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
 .rsvp-close-btn {
     position: absolute;
-    top: 12px;
-    right: 12px;
-    width: 36px;
-    height: 36px;
+    top: 8%;
+    right: 10%;
+    width: 34px;
+    height: 34px;
     background: #fff;
     border: none;
     border-radius: 50%;
-    font-size: 24px;
+    font-size: 22px;
     line-height: 1;
     color: var(--text-dark);
     cursor: pointer;
@@ -107,6 +78,7 @@
     justify-content: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     transition: background 0.2s ease, transform 0.2s ease;
+    z-index: 2;
 }
 
 .rsvp-close-btn:hover {
@@ -114,24 +86,28 @@
     transform: scale(1.1);
 }
 
+/* Waving Frankie hangs off the lower-left corner of the letter, peeking
+   past the card's edge like the site's other corner flourishes. */
 .rsvp-modal-img {
-    width: 140px;
+    position: absolute;
+    bottom: -9%;
+    left: -14%;
+    width: 48%;
     height: auto;
-    margin: 0 auto 10px;
-    display: block;
+    z-index: 1;
+    filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.25));
+    animation: rsvpFrankieWave 2.4s ease-in-out infinite;
 }
 
-.rsvp-modal-title {
-    font-family: 'Alex Brush', cursive;
-    font-size: 2.4rem;
-    color: var(--ink-brown);
-    margin-bottom: 20px;
+@keyframes rsvpFrankieWave {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(6deg); }
 }
 
 .rsvp-form {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 14px;
     text-align: left;
 }
 
@@ -144,68 +120,121 @@
 .rsvp-field-label {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: var(--coral);
+    color: #000;
 }
 
 .rsvp-field input[type="text"] {
     font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    padding: 12px 14px;
-    border: 2px solid var(--light-pink);
+    font-size: 0.95rem;
+    padding: 10px 12px;
+    border: 2px solid #000;
     border-radius: 10px;
     background: #fff;
-    color: var(--text-dark);
+    color: #000;
     transition: border-color 0.2s ease;
+}
+
+.rsvp-field input[type="text"]::placeholder {
+    color: #000;
+    opacity: 1;
 }
 
 .rsvp-field input[type="text"]:focus {
     outline: none;
-    border-color: var(--coral);
+    border-color: #000;
 }
 
 .rsvp-checkbox-row {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     color: var(--text-dark);
 }
 
 .rsvp-checkbox-row input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     accent-color: var(--coral);
     cursor: pointer;
     flex-shrink: 0;
 }
 
+/* Submit stamp - floats over the bottom edge of the letter. It's a direct
+   child of .rsvp-overlay-content (associated with the form via the
+   form="rsvpForm" attribute rather than DOM nesting) so its absolute
+   positioning anchors to the card itself, not to .rsvp-form-fields. */
 .rsvp-submit-btn {
-    margin-top: 6px;
-    padding: 14px 30px;
-    background: linear-gradient(135deg, var(--soft-pink), var(--baby-blue));
-    color: white;
-    border: 2px solid var(--pastel-yellow);
-    border-radius: 50px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+    position: absolute;
+    bottom: -10%;
+    right: -2%;
+    width: 32%;
+    max-width: 120px;
+    background: none;
+    border: none;
+    padding: 0;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 10px 25px rgba(254, 156, 156, 0.4);
+    z-index: 6;
 }
 
-.rsvp-submit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 15px 30px rgba(254, 156, 156, 0.5);
+.rsvp-submit-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.35));
+    animation: rsvpSubmitIdle 2.2s ease-in-out infinite;
 }
 
-.rsvp-submit-btn:active {
-    transform: translateY(0);
+.rsvp-submit-btn.clicked .rsvp-submit-img {
+    animation: rsvpSubmitPunch 0.4s ease;
+}
+
+.rsvp-submit-btn.saving .rsvp-submit-img {
+    animation: rsvpSubmitSpin 0.9s linear infinite;
+}
+
+.rsvp-submit-btn:disabled {
+    cursor: not-allowed;
+}
+
+@keyframes rsvpSubmitIdle {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+@keyframes rsvpSubmitPunch {
+    0% { transform: scale(1); }
+    40% { transform: scale(0.8); }
+    70% { transform: scale(1.18); }
+    100% { transform: scale(1); }
+}
+
+@keyframes rsvpSubmitSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Loading overlay - dims the whole card (letter art, close button, Frankie,
+   form fields) while a submission is in flight. The submit button sits at
+   a higher z-index than this overlay so it stays visible and spinning on
+   top of the dimmed card. */
+.rsvp-loading-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(74, 59, 51, 0.55);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.rsvp-overlay-content.saving .rsvp-loading-overlay {
+    opacity: 1;
+    visibility: visible;
 }

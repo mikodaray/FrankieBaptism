@@ -120,6 +120,31 @@ Edit the following in `index.html`:
 - Contact information
 - RSVP link
 
+### Google Sheets RSVP Sync
+
+RSVP submissions are POSTed to a Google Apps Script Web App, which appends
+them as a row in a Google Sheet. To set this up:
+
+1. Create a Google Sheet with header row `Timestamp | Guest Name | Bringing Car`.
+2. In it, go to **Extensions → Apps Script** and paste:
+   ```javascript
+   function doPost(e) {
+     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+     var data = JSON.parse(e.postData.contents);
+     sheet.appendRow([new Date(), data.guestName, data.bringingCar ? 'Yes' : 'No']);
+     return ContentService.createTextOutput(JSON.stringify({ status: 'success' }));
+   }
+   ```
+3. **Deploy → New deployment → Web app**, execute as **Me**, access **Anyone**.
+4. Copy the deployment URL into `GOOGLE_SHEET_ENDPOINT` at the top of `src/js/rsvp.js`.
+
+Since Apps Script web apps don't return CORS headers, the site submits with
+`fetch(..., { mode: 'no-cors' })`, which means the response can't be read -
+the form always shows success once the request is sent, regardless of
+whether the script itself succeeded. If RSVPs stop appearing in the sheet,
+check the Apps Script deployment is still active and re-check the header
+names match what `doPost` expects.
+
 ### Update Countdown Date
 
 Edit `src/js/countdown.js` and change the `EVENT_DATE` constant:

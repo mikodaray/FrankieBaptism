@@ -30,18 +30,19 @@
         <div class="envelope-stage envelope-stage-closed" id="envelopeClosedStage">
             <div class="closed-envelope-wrap">
                 <div class="closed-envelope-photo-wrap">
-                    <img src="images/envelope/closed-envelope.png" alt="Envelope" class="closed-envelope-img">
+                    <img src="images/envelope/closed-envelope.png" alt="Envelope" class="closed-envelope-img" id="closedEnvelopeImg">
                     <button type="button" class="wax-seal-btn" id="waxSealBtn" aria-label="Open invitation">
                         <img src="images/envelope/wax-seal.png" alt="" class="wax-seal-img">
                     </button>
                 </div>
-                <img src="images/envelope/closed-envelope-below.png" alt="" class="envelope-bottom-decoration">
+                <img src="images/envelope/closed-envelope-below.png" alt="" class="envelope-bottom-decoration" id="envelopeBottomDecoration">
             </div>
         </div>
     </div>
 
-    <!-- Page Loader (hidden by default, envelope is the intro now) -->
-    <div class="page-loader hidden">
+    <!-- Page Loader - covers everything (including the envelope) until every
+         page resource has finished loading, then fades out. -->
+    <div class="page-loader" id="pageLoader">
         <div class="loader-content">
             <img src="images/cross.png" alt="Cross" class="loader-cross">
             <div class="loader-text">With Love...</div>
@@ -78,13 +79,12 @@
         <div class="section-dot active" data-section="0"></div>
         <div class="section-dot" data-section="1"></div>
         <div class="section-dot" data-section="2"></div>
-        <div class="section-dot" data-section="3"></div>
-        <div class="section-dot" data-section="4"></div>
-        <div class="section-dot" data-section="5"></div>
-        <div class="section-dot" data-section="6"></div>
-        <div class="section-dot" data-section="7"></div>
-        <div class="section-dot" data-section="8"></div>
     </nav>
+
+    <!-- Music Toggle - starts muted; music.js syncs this on init -->
+    <button type="button" class="music-toggle-btn" id="musicToggleBtn" aria-label="Unmute music">
+        <img src="images/nomusic.png" alt="No music" class="music-icon">
+    </button>
 
     <!-- Main Container with Snap Sections -->
     <div class="container">
@@ -108,31 +108,8 @@
             </div>
         </section>
 
-        <!-- Section 2: Hello / Jesus walking with Frankie -->
-        <section class="snap-section section-hello" data-index="1">
-            <div class="snap-section-content">
-                <div class="hello-poem-wrap">
-                    <p class="hello-poem">
-                        With love around and hearts aligned,<br>
-                        Frankie&rsquo;s baptism brings peace divine.<br>
-                        We hope you&rsquo;ll come and share the day,<br>
-                        A cherished moment in every way.
-                        <br><br>
-                        Christ&rsquo;s gentle grace will touch her name,<br>
-                        A sacred moment, calm and tame.<br>
-                        Please join us as we softly pray<br>
-                        And celebrate her blessed day.
-                    </p>
-                </div>
-                <div class="hello-visual">
-                    <img src="images/hello-section/jesusandfrankiebg.png" alt="" class="hello-bg-img">
-                    <img src="images/hello-section/frankieandjesus.png" alt="Jesus walking hand in hand with Francine Veronica" class="hello-figures-img">
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 3: Details collage -->
-        <section class="snap-section section-detail-collage" data-index="2">
+        <!-- Section 2: Details collage -->
+        <section class="snap-section section-detail-collage" data-index="1">
             <div class="snap-section-content">
                 <div class="detail-visual">
                     <div class="detail-frame-wrap">
@@ -141,6 +118,17 @@
                             <img src="images/details-section/frankiepics/6323421157121529399.jpg" alt="Francine Veronica" class="frame-slide">
                             <img src="images/details-section/frankiepics/6323421157121529393.jpg" alt="Francine Veronica" class="frame-slide">
                             <img src="images/details-section/frankiepics/6323421157121529396.jpg" alt="Francine Veronica" class="frame-slide">
+                            <img src="images/details-section/frankiepics/6053098930578330125.jpg" alt="Francine Veronica" class="frame-slide">
+                            <img src="images/details-section/frankiepics/6053098930578330126.jpg" alt="Francine Veronica" class="frame-slide">
+                            <img src="images/details-section/frankiepics/6053098930578330127.jpg" alt="Francine Veronica" class="frame-slide">
+                            <img src="images/details-section/frankiepics/6053098930578330128.jpg" alt="Francine Veronica" class="frame-slide">
+                            <img src="images/details-section/frankiepics/6053098930578330130.jpg" alt="Francine Veronica" class="frame-slide">
+                            <img src="images/details-section/frankiepics/6053098930578330131.jpg" alt="Francine Veronica" class="frame-slide">
+                            <img src="images/details-section/frankiepics/6053098930578330132.jpg" alt="Francine Veronica" class="frame-slide">
+                            <img src="images/details-section/frankiepics/6053098930578330133.jpg" alt="Francine Veronica" class="frame-slide">
+                            <img src="images/details-section/frankiepics/6053098930578330134.jpg" alt="Francine Veronica" class="frame-slide">
+                            <img src="images/details-section/frankiepics/6053098930578330135.jpg" alt="Francine Veronica" class="frame-slide">
+                            <img src="images/details-section/frankiepics/6053098930578330136.jpg" alt="Francine Veronica" class="frame-slide">
                         </div>
                         <img src="images/details-section/frame.png" alt="" class="detail-frame">
                     </div>
@@ -157,138 +145,18 @@
             </div>
         </section>
 
-        <!-- Section 4: Frankie to Church -->
-        <section class="snap-section section-frankie-church" data-index="3">
+        <!-- Section 3: Family -->
+        <section class="snap-section section-family" data-index="2">
             <div class="snap-section-content">
-                <div class="frankie-church-layout">
-                    <div class="frankie-church-left">
-                        <img src="images/frankietochurch.png" alt="Frankie going to church" class="frankie-church-img">
-                    </div>
-                    <div class="frankie-church-right">
-                        <img src="images/blankhorizontalscroll.png" alt="" class="scroll-bg-img">
-                        <div class="scroll-text-content">
-                            <p class="scroll-poem">
-                                Christ's love will guide our Frankie dear,<br>
-                                A path of grace, forever near.<br>
-                                Please join us for this sacred start,<br>
-                                A christening filled with joy of heart.
-                            </p>
-                        </div>
-                    </div>
+                <div class="family-visual">
+                    <img src="images/family-section/familywithtitle.png" alt="The Family" class="family-title-img">
+                    <button type="button" class="family-rsvp-btn" id="familyRsvpBtn" aria-label="RSVP">
+                        <img src="images/family-section/rsvp.png" alt="RSVP" class="family-rsvp-img">
+                    </button>
+                    <button type="button" class="family-styling-btn" id="stylingSuggestionsBtn" aria-label="See styling suggestions">
+                        <img src="images/family-section/stylingsuggestions.png" alt="Styling Suggestions" class="family-styling-img">
+                    </button>
                 </div>
-            </div>
-        </section>
-
-        <!-- Section 5: Event Details -->
-        <section class="snap-section section-details" data-index="4">
-            <div class="snap-section-content">
-                <div class="when-where-section">
-                    <div class="starburst-badge stagger-1">
-                        <span>When &amp; Where</span>
-                    </div>
-
-                    <div class="when-where-photo-wrap stagger-2">
-                        <div class="arch-outline"></div>
-                        <div class="arch-frame">
-                            <img src="images/francine.png" alt="Francine Veronica" class="arch-photo">
-                        </div>
-                        <div class="name-ribbon">Frankie</div>
-                    </div>
-
-                    <div class="when-where-block stagger-3">
-                        <p class="when-where-label">Date &amp; Time</p>
-                        <p class="when-where-main">September 12, 2026</p>
-                        <p class="when-where-sub">3:00 PM</p>
-                    </div>
-
-                    <div class="when-where-row stagger-4">
-                        <div class="when-where-block">
-                            <p class="when-where-label">Ceremony</p>
-                            <p class="when-where-main">Christ the King Parish</p>
-                            <p class="when-where-sub">Greenmeadows, Quezon City</p>
-                            <a href="#" class="map-link" data-location="ceremony" data-address="Christ the King Parish, Greenmeadows, Quezon City">📍 Map</a>
-                        </div>
-
-                        <div class="when-where-block">
-                            <p class="when-where-label">Reception</p>
-                            <p class="when-where-main">Buttery &amp; Co.</p>
-                            <p class="when-where-sub">Katipunan Ave, White Plains, Quezon City</p>
-                            <a href="#" class="map-link" data-location="reception" data-address="Buttery & Co. Katipunan Ave, White Plains, Quezon City">📍 Map</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 6: Countdown Timer -->
-        <section class="snap-section section-countdown" data-index="5">
-            <div class="snap-section-content">
-                <div class="countdown-section">
-                    <div class="countdown-title">Counting Down To The Special Day</div>
-                    <div class="countdown-timer">
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="days">00</span>
-                            <span class="countdown-label">Days</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="hours">00</span>
-                            <span class="countdown-label">Hours</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="minutes">00</span>
-                            <span class="countdown-label">Mins</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="seconds">00</span>
-                            <span class="countdown-label">Secs</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 7: Message / Bible Verse -->
-        <section class="snap-section section-message" data-index="6">
-            <div class="snap-section-content">
-                <div class="message-section">
-                    <p>
-                        "For you created my inmost being; you knit me together in my mother's womb. I praise you because I am fearfully and wonderfully made."
-                        <br><br>
-                        — Psalm 139:13-14
-                    </p>
-                    <p style="margin-top: 25px;">
-                        "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future."
-                        <br><br>
-                        — Jeremiah 29:11
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 8: RSVP -->
-        <section class="snap-section section-rsvp" data-index="7">
-            <div class="snap-section-content">
-                <div class="rsvp-section">
-                    <button type="button" class="rsvp-btn" id="rsvpBtn">RSVP Now</button>
-                    <p style="margin-top: 15px; color: var(--text-light); font-size: 0.9rem;">
-                        Kindly respond by [RSVP Date]
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 9: Footer -->
-        <section class="snap-section section-footer" data-index="8">
-            <div class="snap-section-content">
-                <footer class="footer">
-                    <div class="footer-hearts">♡ ♡ ♡</div>
-                    <p>With love and blessings,</p>
-                    <div class="family-name">[Family Name Placeholder]</div>
-                    <p style="margin-top: 20px; font-size: 0.8rem;">
-                        For inquiries, please contact:<br>
-                        [Contact Number Placeholder]
-                    </p>
-                </footer>
             </div>
         </section>
 
@@ -315,20 +183,33 @@
     <!-- RSVP Modal -->
     <div class="rsvp-overlay" id="rsvpOverlay">
         <div class="rsvp-overlay-content">
+            <img src="images/family-section/rsvpletter.png" alt="" class="rsvp-letter-bg">
             <button type="button" class="rsvp-close-btn" id="rsvpCloseBtn" aria-label="Close">&times;</button>
             <img src="images/waving frankie.png" alt="Francine Veronica waving" class="rsvp-modal-img">
-            <h3 class="rsvp-modal-title">See you there!</h3>
-            <form class="rsvp-form" id="rsvpForm">
-                <label class="rsvp-field">
-                    <span class="rsvp-field-label">Your Name</span>
-                    <input type="text" name="guestName" placeholder="Enter your name" required>
-                </label>
-                <label class="rsvp-checkbox-row">
-                    <input type="checkbox" name="bringingCar">
-                    <span>I&rsquo;ll be bringing a car</span>
-                </label>
-                <button type="submit" class="rsvp-submit-btn">Confirm RSVP</button>
-            </form>
+            <div class="rsvp-form-fields">
+                <form class="rsvp-form" id="rsvpForm">
+                    <label class="rsvp-field">
+                        <span class="rsvp-field-label">Your Name</span>
+                        <input type="text" name="guestName" placeholder="Enter your name" required>
+                    </label>
+                    <label class="rsvp-checkbox-row">
+                        <input type="checkbox" name="bringingCar">
+                        <span>I need parking.</span>
+                    </label>
+                </form>
+            </div>
+            <button type="submit" form="rsvpForm" class="rsvp-submit-btn" aria-label="Submit RSVP">
+                <img src="images/family-section/submitbutton.png" alt="" class="rsvp-submit-img">
+            </button>
+            <div class="rsvp-loading-overlay"></div>
+        </div>
+    </div>
+
+    <!-- Styling Suggestions Overlay Modal -->
+    <div class="detail-popup-overlay" id="stylingSuggestionsOverlay">
+        <div class="detail-popup-content">
+            <button type="button" class="detail-popup-close" id="stylingSuggestionsCloseBtn" aria-label="Close">&times;</button>
+            <img src="images/family-section/pastelcolors.png" alt="Pastel color styling suggestions" class="detail-popup-img">
         </div>
     </div>
 
@@ -349,8 +230,11 @@
                     <img src="images/details-section/redpin.png" alt="See on map" class="redpin-btn-img">
                 </button>
                 <img src="images/details-section/frankietochurch.png" alt="Christ the King Parish, Green Meadows" class="detail-popup-img" id="churchPopupImg">
-                <button type="button" class="reception-btn" id="receptionBtn" aria-label="See reception details">
-                    <img src="images/details-section/reception.png" alt="Reception" class="reception-btn-img">
+                <button type="button" class="venue-swap-btn" id="receptionBtn" aria-label="See reception details">
+                    <img src="images/details-section/reception.png" alt="Reception" class="venue-swap-btn-img">
+                </button>
+                <button type="button" class="venue-swap-btn" id="churchBtn" aria-label="See church details" style="display: none;">
+                    <img src="images/details-section/church.png" alt="Church" class="venue-swap-btn-img">
                 </button>
             </div>
             <div class="detail-popup-address" id="churchPopupAddress">

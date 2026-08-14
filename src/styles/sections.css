@@ -60,16 +60,12 @@
     background: radial-gradient(ellipse at center, rgba(246, 201, 212, 0.8) 0%, rgba(255, 243, 245, 0.88) 35%);
 }
 
-.section-hello {
-    background: radial-gradient(ellipse at center, rgba(246, 201, 212, 0.55) 0%, rgba(255, 243, 245, 0.8) 45%);
-}
-
 .section-detail-collage {
     background: var(--light-pink);
 }
 
-.section-frankie-church {
-    background: radial-gradient(ellipse at center, rgba(240, 222, 199, 0.75) 0%, rgba(255, 243, 245, 0.88) 40%);
+.section-family {
+    background: var(--pastel-yellow);
 }
 
 .section-welcome {
@@ -80,22 +76,3 @@
     background: radial-gradient(ellipse at top, rgba(240, 222, 199, 0.75) 0%, rgba(255, 243, 245, 0.88) 30%);
 }
 
-.section-details {
-    background: radial-gradient(ellipse at bottom, rgba(246, 201, 212, 0.8) 0%, rgba(255, 243, 245, 0.88) 35%);
-}
-
-.section-countdown {
-    background: radial-gradient(ellipse at center, rgba(246, 201, 212, 0.8) 0%, rgba(255, 243, 245, 0.88) 30%);
-}
-
-.section-message {
-    background: radial-gradient(ellipse at top, rgba(224, 137, 156, 0.7) 0%, rgba(255, 243, 245, 0.88) 35%);
-}
-
-.section-rsvp {
-    background: radial-gradient(ellipse at center, rgba(240, 222, 199, 0.75) 0%, rgba(255, 243, 245, 0.88) 30%);
-}
-
-.section-footer {
-    background: radial-gradient(ellipse at bottom, rgba(246, 201, 212, 0.8) 0%, rgba(255, 243, 245, 0.88) 35%);
-}

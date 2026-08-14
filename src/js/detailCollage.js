@@ -1,52 +1,5 @@
 // Details Collage Interactions Module
-
-// Toggles .clicked on a button to (re)play its click animation, restarting
-// it cleanly even if clicked again before the previous run finished.
-function pulseClick(btn) {
-    btn.classList.remove('clicked');
-    void btn.offsetWidth;
-    btn.classList.add('clicked');
-
-    if ('vibrate' in navigator) {
-        navigator.vibrate(12);
-    }
-}
-
-function initPopupButton(btn, overlay, closeBtn) {
-    if (!btn || !overlay || !closeBtn) return;
-
-    function open() {
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function close() {
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    btn.addEventListener('click', () => {
-        pulseClick(btn);
-        open();
-    });
-    btn.addEventListener('animationend', () => {
-        btn.classList.remove('clicked');
-    });
-
-    closeBtn.addEventListener('click', close);
-
-    overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) {
-            close();
-        }
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && overlay.classList.contains('active')) {
-            close();
-        }
-    });
-}
+import { pulseClick, initPopupButton } from './uiHelpers.js';
 
 const CHURCH_PHOTO = {
     src: 'images/details-section/frankietochurch.png',
@@ -69,6 +22,7 @@ export function initDetailCollage() {
     const churchPopupImg = document.getElementById('churchPopupImg');
     const churchPopupAddress = document.getElementById('churchPopupAddress');
     const receptionBtn = document.getElementById('receptionBtn');
+    const churchBtn = document.getElementById('churchBtn');
     const redpinBtn = document.getElementById('churchRedpinBtn');
 
     initPopupButton(
@@ -98,20 +52,30 @@ export function initDetailCollage() {
         mapBtn.addEventListener('click', () => {
             showChurchPopupPhoto(CHURCH_PHOTO);
             receptionBtn.style.display = '';
+            if (churchBtn) churchBtn.style.display = 'none';
         });
     }
 
-    // Reception button - swaps the church popup photo for the reception venue
-    if (receptionBtn && churchPopupImg && churchPopupAddress) {
-        receptionBtn.addEventListener('click', () => {
-            pulseClick(receptionBtn);
-            showChurchPopupPhoto(RECEPTION_PHOTO);
-            receptionBtn.style.display = 'none';
+    // Venue swap buttons - reception.png (shown over the church photo) and
+    // church.png (shown over the reception photo) swap which venue is
+    // displayed. Each just shakes on click; the photo swap and button swap
+    // only happen once that shake animation finishes.
+    function initVenueSwapButton(btn, otherBtn, targetPhoto) {
+        if (!btn || !churchPopupImg || !churchPopupAddress) return;
+
+        btn.addEventListener('click', () => {
+            pulseClick(btn);
         });
-        receptionBtn.addEventListener('animationend', () => {
-            receptionBtn.classList.remove('clicked');
+        btn.addEventListener('animationend', () => {
+            btn.classList.remove('clicked');
+            showChurchPopupPhoto(targetPhoto);
+            btn.style.display = 'none';
+            if (otherBtn) otherBtn.style.display = '';
         });
     }
+
+    initVenueSwapButton(receptionBtn, churchBtn, RECEPTION_PHOTO);
+    initVenueSwapButton(churchBtn, receptionBtn, CHURCH_PHOTO);
 
     // Red pin button - the click-bounce animation; opening the Google Maps
     // overlay itself is handled by map.js's own .map-link listener, which

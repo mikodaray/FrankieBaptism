@@ -1,0 +1,47 @@
+/* Music Toggle - fixed at the upper-left, matching .section-nav's z-index
+   so it's hidden behind the closed envelope and only usable once opened
+   (music itself only starts playing once the envelope opens anyway). The
+   music.png/nomusic.png badges are decorative circular illustrations, so
+   the button itself carries no background/border chrome of its own. */
+.music-toggle-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+    width: 64px;
+    height: 64px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.music-toggle-btn:hover .music-icon {
+    animation: none;
+    transform: scale(1.12);
+}
+
+.music-icon {
+    display: block;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25));
+    animation: musicIconIdle 2.4s ease-in-out infinite;
+}
+
+.music-toggle-btn.clicked .music-icon {
+    animation: musicIconClicked 0.5s ease;
+}
+
+@keyframes musicIconIdle {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.06) rotate(-4deg); }
+}
+
+@keyframes musicIconClicked {
+    0% { transform: scale(1) rotate(0deg); }
+    35% { transform: scale(0.85) rotate(-10deg); }
+    70% { transform: scale(1.15) rotate(8deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}

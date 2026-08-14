@@ -10,13 +10,4 @@
     .baby-name {
         font-size: 2.8rem;
     }
-
-    .countdown-item {
-        min-width: 60px;
-        padding: 12px 8px;
-    }
-
-    .countdown-number {
-        font-size: 1.5rem;
-    }
 }

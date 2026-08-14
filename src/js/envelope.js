@@ -1,7 +1,11 @@
 // Envelope Animation Module
+import { playMusic } from './music.js';
+
 export function initEnvelope() {
     const envelopeIntro = document.getElementById('envelopeIntro');
     const waxSealBtn = document.getElementById('waxSealBtn');
+    const closedEnvelopeImg = document.getElementById('closedEnvelopeImg');
+    const envelopeBottomDecoration = document.getElementById('envelopeBottomDecoration');
 
     let transitioned = false;
 
@@ -39,6 +43,7 @@ export function initEnvelope() {
         }
 
         envelopeIntro.classList.add('hidden');
+        playMusic();
 
         if ('vibrate' in navigator) {
             navigator.vibrate([30, 50, 30]);
@@ -48,4 +53,13 @@ export function initEnvelope() {
     }
 
     waxSealBtn.addEventListener('click', openEnvelope);
+
+    // The envelope artwork and the decoration below it open the invitation
+    // too, same as the wax seal, so the whole envelope reads as clickable.
+    if (closedEnvelopeImg) {
+        closedEnvelopeImg.addEventListener('click', openEnvelope);
+    }
+    if (envelopeBottomDecoration) {
+        envelopeBottomDecoration.addEventListener('click', openEnvelope);
+    }
 }
