@@ -1,5 +1,17 @@
 // Details Collage Interactions Module
 
+// Toggles .clicked on a button to (re)play its click animation, restarting
+// it cleanly even if clicked again before the previous run finished.
+function pulseClick(btn) {
+    btn.classList.remove('clicked');
+    void btn.offsetWidth;
+    btn.classList.add('clicked');
+
+    if ('vibrate' in navigator) {
+        navigator.vibrate(12);
+    }
+}
+
 function initPopupButton(btn, overlay, closeBtn) {
     if (!btn || !overlay || !closeBtn) return;
 
@@ -14,14 +26,7 @@ function initPopupButton(btn, overlay, closeBtn) {
     }
 
     btn.addEventListener('click', () => {
-        btn.classList.remove('clicked');
-        void btn.offsetWidth; // restart the animation if clicked again mid-play
-        btn.classList.add('clicked');
-
-        if ('vibrate' in navigator) {
-            navigator.vibrate(12);
-        }
-
+        pulseClick(btn);
         open();
     });
     btn.addEventListener('animationend', () => {
@@ -47,14 +52,16 @@ const CHURCH_PHOTO = {
     src: 'images/details-section/frankietochurch.png',
     alt: 'Christ the King Parish, Green Meadows',
     name: 'Christ the King Parish',
-    line: 'Greenmeadows Avenue, Quezon City'
+    line: 'Greenmeadows Avenue, Quezon City',
+    mapLocation: 'ceremony'
 };
 
 const RECEPTION_PHOTO = {
     src: 'images/details-section/butteryandco.png',
     alt: 'Buttery & Co. reception venue',
     name: 'Buttery & Co.',
-    line: '104 Katipunan Ave., Brgy. White Plains, Quezon City'
+    line: '104 Katipunan Ave., Brgy. White Plains, Quezon City',
+    mapLocation: 'reception'
 };
 
 export function initDetailCollage() {
@@ -62,6 +69,7 @@ export function initDetailCollage() {
     const churchPopupImg = document.getElementById('churchPopupImg');
     const churchPopupAddress = document.getElementById('churchPopupAddress');
     const receptionBtn = document.getElementById('receptionBtn');
+    const redpinBtn = document.getElementById('churchRedpinBtn');
 
     initPopupButton(
         mapBtn,
@@ -80,6 +88,9 @@ export function initDetailCollage() {
         churchPopupImg.alt = photo.alt;
         churchPopupAddress.querySelector('.detail-popup-address-name').textContent = photo.name;
         churchPopupAddress.querySelector('.detail-popup-address-line').textContent = photo.line;
+        if (redpinBtn) {
+            redpinBtn.setAttribute('data-location', photo.mapLocation);
+        }
     }
 
     // Reset the church popup back to the ceremony photo each time it's reopened
@@ -93,19 +104,24 @@ export function initDetailCollage() {
     // Reception button - swaps the church popup photo for the reception venue
     if (receptionBtn && churchPopupImg && churchPopupAddress) {
         receptionBtn.addEventListener('click', () => {
-            receptionBtn.classList.remove('clicked');
-            void receptionBtn.offsetWidth;
-            receptionBtn.classList.add('clicked');
-
-            if ('vibrate' in navigator) {
-                navigator.vibrate(12);
-            }
-
+            pulseClick(receptionBtn);
             showChurchPopupPhoto(RECEPTION_PHOTO);
             receptionBtn.style.display = 'none';
         });
         receptionBtn.addEventListener('animationend', () => {
             receptionBtn.classList.remove('clicked');
+        });
+    }
+
+    // Red pin button - the click-bounce animation; opening the Google Maps
+    // overlay itself is handled by map.js's own .map-link listener, which
+    // reads this button's data-location fresh at click time.
+    if (redpinBtn) {
+        redpinBtn.addEventListener('click', () => {
+            pulseClick(redpinBtn);
+        });
+        redpinBtn.addEventListener('animationend', () => {
+            redpinBtn.classList.remove('clicked');
         });
     }
 }

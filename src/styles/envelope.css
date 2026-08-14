@@ -206,7 +206,7 @@
 /* Letter and other images fade in 1.5 seconds after envelope */
 .letter-card {
     position: relative;
-    width: min(92vw, 460px);
+    width: min(92vw, 370px);
     z-index: 2;
     margin: 0 auto;
     opacity: 0;
@@ -248,7 +248,7 @@
 .baptism-pool-decoration {
     position: absolute;
     bottom: -2%;
-    right: -30%;
+    right: -23%;
     width: 70%;
     height: auto;
     z-index: 3;

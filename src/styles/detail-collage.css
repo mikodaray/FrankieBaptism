@@ -257,8 +257,8 @@
     bottom: -8%;
     left: 50%;
     transform: translateX(-50%);
-    width: 26%;
-    max-width: 150px;
+    width: 38%;
+    max-width: 220px;
     background: none;
     border: none;
     padding: 0;
@@ -292,4 +292,38 @@
     0% { transform: scale(1); }
     50% { transform: scale(1.5); }
     100% { transform: scale(1); }
+}
+
+/* Red pin button - floats over the top edge of the popup image, opens
+   the Google Maps overlay for whichever venue is currently shown. */
+.redpin-btn {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16%;
+    max-width: 90px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.redpin-btn-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.35));
+}
+
+.redpin-btn.clicked .redpin-btn-img {
+    animation: redpinClick 0.5s ease;
+}
+
+@keyframes redpinClick {
+    0% { transform: scale(1) translateY(0); }
+    30% { transform: scale(0.8) translateY(6px); }
+    65% { transform: scale(1.25) translateY(-10px) rotate(-8deg); }
+    100% { transform: scale(1) translateY(0) rotate(0deg); }
 }
