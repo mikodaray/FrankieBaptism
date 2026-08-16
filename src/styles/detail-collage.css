@@ -257,6 +257,21 @@
     margin-bottom: 4px;
 }
 
+/* Only the church photo sets this (empty for the reception photo), so it
+   collapses away automatically when swapped to Buttery & Co. */
+.detail-popup-address-subname:empty {
+    display: none;
+}
+
+.detail-popup-address-subname {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
 .detail-popup-address-line {
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;

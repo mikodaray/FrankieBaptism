@@ -23,14 +23,6 @@ export function initSnapNavigation() {
                     dot.classList.toggle('active', i === parseInt(index));
                 });
 
-                // Hide scroll indicator after first section
-                if (parseInt(index) > 0) {
-                    const scrollIndicator = document.querySelector('.scroll-indicator');
-                    if (scrollIndicator) {
-                        scrollIndicator.style.opacity = '0';
-                    }
-                }
-
                 // Keep the floating balloon babies off the opened-envelope/letter section
                 // so they never cover the poem text
                 if (balloonsLayer) {
@@ -65,6 +57,17 @@ export function initSnapNavigation() {
             dot.addEventListener('click', () => {
                 navigator.vibrate(10);
             });
+        });
+    }
+
+    // Clicking the letter on the first section scrolls to the next section
+    const letterCard = document.getElementById('letterCard');
+    if (letterCard) {
+        letterCard.addEventListener('click', () => {
+            const nextSection = document.querySelector('.snap-section[data-index="1"]');
+            if (nextSection) {
+                nextSection.scrollIntoView({ behavior: 'smooth' });
+            }
         });
     }
 }

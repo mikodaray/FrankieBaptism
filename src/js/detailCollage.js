@@ -5,6 +5,7 @@ const CHURCH_PHOTO = {
     src: 'images/details-section/frankietochurch.png',
     alt: 'Christ the King Parish, Green Meadows',
     name: 'Christ the King Parish',
+    subname: 'Divine Mercy Chapel',
     line: 'Greenmeadows Avenue, Quezon City',
     mapLocation: 'ceremony'
 };
@@ -13,6 +14,7 @@ const RECEPTION_PHOTO = {
     src: 'images/details-section/butteryandco.png',
     alt: 'Buttery & Co. reception venue',
     name: 'Buttery & Co.',
+    subname: '',
     line: '104 Katipunan Ave., Brgy. White Plains, Quezon City',
     mapLocation: 'reception'
 };
@@ -41,6 +43,7 @@ export function initDetailCollage() {
         churchPopupImg.src = photo.src;
         churchPopupImg.alt = photo.alt;
         churchPopupAddress.querySelector('.detail-popup-address-name').textContent = photo.name;
+        churchPopupAddress.querySelector('.detail-popup-address-subname').textContent = photo.subname;
         churchPopupAddress.querySelector('.detail-popup-address-line').textContent = photo.line;
         if (redpinBtn) {
             redpinBtn.setAttribute('data-location', photo.mapLocation);

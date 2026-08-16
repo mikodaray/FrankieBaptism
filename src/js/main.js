@@ -10,6 +10,7 @@ import { initDetailCollage } from './detailCollage.js';
 import { initRsvpModal } from './rsvp.js';
 import { initFamilySection } from './familySection.js';
 import { initMusicToggle } from './music.js';
+import { initGodparentBanners } from './godparents.js';
 
 // Initialize all modules when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -23,4 +24,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initRsvpModal();
     initFamilySection();
     initMusicToggle();
+    initGodparentBanners();
 });

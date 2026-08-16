@@ -86,6 +86,11 @@
         <img src="images/nomusic.png" alt="No music" class="music-icon">
     </button>
 
+    <!-- Scroll Indicator - fixed so it stays visible on every section -->
+    <div class="scroll-indicator">
+        <span></span>
+    </div>
+
     <!-- Main Container with Snap Sections -->
     <div class="container">
 
@@ -94,17 +99,14 @@
             <div class="snap-section-content">
                 <div class="envelope-open-visual">
                     <img src="images/envelope/open-envelope.png" alt="Envelope" class="open-envelope-photo">
-                    <div class="letter-card">
+                    <div class="letter-card" id="letterCard">
                         <img src="images/envelope/blank-letter.png" alt="You are cordially invited to Francine Veronica's Christening" class="blank-letter-img">
-                        <img src="images/baptismpool-wobg.png" alt="" class="baptism-pool-decoration">
+                        <img src="images/baptismpool-wobg.png" alt="" class="baptism-pool-decoration" id="baptismPoolDecoration">
+                        <img src="images/envelope/ninong.png" alt="Will you be my Ninong?" class="godparent-banner" id="ninongBanner">
+                        <img src="images/envelope/ninang.png" alt="Will you be my Ninang?" class="godparent-banner" id="ninangBanner">
                     </div>
                     <img src="images/frankiebible.png" alt="Francine Veronica" class="frankie-bible-img">
                 </div>
-            </div>
-
-            <!-- Scroll Indicator -->
-            <div class="scroll-indicator">
-                <span></span>
             </div>
         </section>
 
@@ -150,9 +152,12 @@
             <div class="snap-section-content">
                 <div class="family-visual">
                     <img src="images/family-section/familywithtitle.png" alt="The Family" class="family-title-img">
-                    <button type="button" class="family-rsvp-btn" id="familyRsvpBtn" aria-label="RSVP">
-                        <img src="images/family-section/rsvp.png" alt="RSVP" class="family-rsvp-img">
-                    </button>
+                    <div class="family-rsvp-wrap">
+                        <button type="button" class="family-rsvp-btn" id="familyRsvpBtn" aria-label="RSVP">
+                            <img src="images/family-section/rsvp.png" alt="RSVP" class="family-rsvp-img">
+                        </button>
+                        <p class="family-rsvp-deadline">RSVP deadline<br>August 23, 2026</p>
+                    </div>
                     <button type="button" class="family-styling-btn" id="stylingSuggestionsBtn" aria-label="See styling suggestions">
                         <img src="images/family-section/stylingsuggestions.png" alt="Styling Suggestions" class="family-styling-img">
                     </button>
@@ -239,6 +244,7 @@
             </div>
             <div class="detail-popup-address" id="churchPopupAddress">
                 <p class="detail-popup-address-name">Christ the King Parish</p>
+                <p class="detail-popup-address-subname">Divine Mercy Chapel</p>
                 <p class="detail-popup-address-line">Greenmeadows Avenue, Quezon City</p>
             </div>
         </div>
