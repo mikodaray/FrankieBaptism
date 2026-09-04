@@ -103,6 +103,12 @@ body {
     font-weight: 700;
 }
 
+.invite-eyebrow-name {
+    display: inline-block;
+    font-size: 1.4em;
+    margin-top: 2px;
+}
+
 .invite-title {
     font-family: 'Alex Brush', cursive;
     font-size: clamp(2.1rem, 9.5vw, 2.9rem);

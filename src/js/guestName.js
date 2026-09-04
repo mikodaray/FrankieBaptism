@@ -60,7 +60,12 @@ export async function initGuestGreeting() {
         const name = await fetchGuestName(rowNumber);
         if (name) {
             eyebrow.textContent = '';
-            eyebrow.append('Hi ', Object.assign(document.createElement('strong'), { textContent: name }), ', See you at...');
+            eyebrow.append(
+                'Thanks for Confirming',
+                document.createElement('br'),
+                Object.assign(document.createElement('strong'), { textContent: name, className: 'invite-eyebrow-name' }),
+                ', see you at...'
+            );
         }
     } catch (err) {
         console.warn('Guest name lookup failed:', err);
