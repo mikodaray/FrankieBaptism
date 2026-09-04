@@ -349,10 +349,21 @@
     width: 100%;
     height: auto;
     filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.35));
+    animation: redpinIdle 1.8s ease-in-out infinite;
+}
+
+.redpin-btn:hover .redpin-btn-img {
+    animation: none;
+    transform: scale(1.1) translateY(-4px);
 }
 
 .redpin-btn.clicked .redpin-btn-img {
     animation: redpinClick 0.5s ease;
+}
+
+@keyframes redpinIdle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
 }
 
 @keyframes redpinClick {
