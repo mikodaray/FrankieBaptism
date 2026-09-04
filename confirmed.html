@@ -20,19 +20,75 @@
 
             <div class="invite-card-inner">
                 <p class="invite-eyebrow">RSVP Confirmed</p>
-                <h1 class="invite-title">You have confirmed you'll attend my baptism, Yay!</h1>
-                <p class="invite-subtitle">Francine Veronica's Christening</p>
+                <h1 class="invite-title">Frankie's Christening</h1>
                 <p class="invite-datetime">September 12 | 3:00 PM</p>
-                <p class="invite-address">Christ the King Parish, Divine Mercy Chapel<br>Greenmeadows Avenue, Quezon City</p>
-                <p class="invite-reception">Reception at Buttery &amp; Co., Katipunan Ave.</p>
+                <p class="invite-address">Christ the King Parish,<br>Divine Mercy Chapel<br>Greenmeadows Avenue,<br>Quezon City</p>
+                <p class="invite-reception">Reception at Buttery &amp; Co.,<br>Katipunan Ave.</p>
 
                 <div class="invite-photo-wrap">
                     <img src="images/frankiewhitedress.png" alt="Francine Veronica in her christening gown" class="invite-photo">
                 </div>
             </div>
-        </div>
 
-        <a href="./" class="confirmed-back-link">&larr; Back to the invitation</a>
+            <div class="confirmed-details-buttons">
+                <button type="button" class="detail-map-btn" id="detailMapBtn" aria-label="See where">
+                    <img src="images/details-section/frankieandmap.png" alt="" class="detail-map-img">
+                </button>
+                <button type="button" class="detail-book-btn" id="detailBookBtn" aria-label="See date and time">
+                    <img src="images/details-section/closebook.png" alt="" class="detail-book-img">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Overlay Modal -->
+    <div class="map-overlay" id="mapOverlay">
+        <div class="map-overlay-content">
+            <button class="map-close-btn" id="mapCloseBtn">&times;</button>
+            <div class="map-container">
+                <iframe
+                    id="mapIframe"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    loading="lazy"
+                    allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Book Overlay Modal -->
+    <div class="detail-popup-overlay" id="bookOverlay">
+        <div class="detail-popup-content">
+            <button type="button" class="detail-popup-close" id="bookCloseBtn" aria-label="Close">&times;</button>
+            <img src="images/details-section/openbook.png" alt="September 12, 2026 at 3:00 PM" class="detail-popup-img">
+        </div>
+    </div>
+
+    <!-- Church Location Overlay Modal -->
+    <div class="detail-popup-overlay" id="churchOverlay">
+        <div class="detail-popup-content">
+            <button type="button" class="detail-popup-close" id="churchCloseBtn" aria-label="Close">&times;</button>
+            <div class="detail-popup-media">
+                <button type="button" class="redpin-btn map-link" id="churchRedpinBtn" data-location="ceremony" aria-label="See on map">
+                    <img src="images/details-section/redpin.png" alt="See on map" class="redpin-btn-img">
+                </button>
+                <img src="images/details-section/frankietochurch.png" alt="Christ the King Parish, Green Meadows" class="detail-popup-img" id="churchPopupImg">
+                <button type="button" class="venue-swap-btn" id="receptionBtn" aria-label="See reception details">
+                    <img src="images/details-section/reception.png" alt="Reception" class="venue-swap-btn-img">
+                </button>
+                <button type="button" class="venue-swap-btn" id="churchBtn" aria-label="See church details" style="display: none;">
+                    <img src="images/details-section/church.png" alt="Church" class="venue-swap-btn-img">
+                </button>
+            </div>
+            <div class="detail-popup-address" id="churchPopupAddress">
+                <p class="detail-popup-address-name">Christ the King Parish</p>
+                <p class="detail-popup-address-subname">Divine Mercy Chapel</p>
+                <p class="detail-popup-address-line">Greenmeadows Avenue, Quezon City</p>
+            </div>
+        </div>
     </div>
 
     <script type="module" src="/src/js/confirmed.js"></script>

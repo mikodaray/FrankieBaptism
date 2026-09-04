@@ -8,6 +8,24 @@ export default defineConfig({
   // Base path for GitHub Pages deployment
   // Replace 'your-repo-name' with your actual repository name
   base: './',
+  plugins: [
+    // GitHub Pages serves extension-less URLs by falling back to the
+    // matching .html file (e.g. /confirmed -> confirmed.html) without a
+    // redirect, so the address bar stays clean. Mirror that locally so
+    // `npm run dev` matches production instead of 404ing on /confirmed.
+    {
+      name: 'extensionless-html-fallback',
+      configureServer(server) {
+        server.middlewares.use((req, res, next) => {
+          const [path, query] = (req.url || '').split('?');
+          if (path === '/confirmed' || path === '/confirmed/') {
+            req.url = `/confirmed.html${query ? `?${query}` : ''}`;
+          }
+          next();
+        });
+      }
+    }
+  ],
   build: {
     outDir: 'dist',
     assetsDir: 'assets',

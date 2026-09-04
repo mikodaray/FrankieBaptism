@@ -34,7 +34,7 @@ export function initEnvelope() {
         if (transitioned) return;
 
         if (isReminderFlow) {
-            window.location.href = 'confirmed.html';
+            window.location.href = 'confirmed';
             return;
         }
 

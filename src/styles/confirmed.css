@@ -1,5 +1,7 @@
 @import './variables.css';
 @import './animations.css';
+@import './detail-collage.css';
+@import './cards.css';
 
 * {
     margin: 0;
@@ -20,7 +22,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 18px;
-    padding: 40px 20px;
+    padding: 40px 20px 90px;
     overflow: hidden;
     background-color: var(--cream);
     background-image: url('/images/backgroundimage.png');
@@ -91,33 +93,29 @@ body {
 .invite-eyebrow {
     font-family: 'Fraunces', serif;
     font-style: italic;
-    font-size: 0.75rem;
+    font-size: 0.95rem;
     color: var(--deep-coral);
     letter-spacing: 1px;
     margin-bottom: 6px;
 }
 
+.invite-eyebrow strong {
+    font-weight: 700;
+}
+
 .invite-title {
     font-family: 'Alex Brush', cursive;
-    font-size: 1.4rem;
+    font-size: clamp(2.1rem, 9.5vw, 2.9rem);
     line-height: 1.2;
     color: var(--coral);
     text-shadow: 1px 1px 3px rgba(224, 137, 156, 0.25);
     margin-bottom: 6px;
 }
 
-.invite-subtitle {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 0.85rem;
-    color: var(--deep-coral);
-    margin-bottom: 8px;
-}
-
 .invite-datetime {
     font-family: 'Fraunces', serif;
     font-weight: 600;
-    font-size: 0.8rem;
+    font-size: 1rem;
     color: var(--deep-coral);
     margin-bottom: 4px;
 }
@@ -125,7 +123,7 @@ body {
 .invite-address,
 .invite-reception {
     font-family: 'Fraunces', serif;
-    font-size: 0.62rem;
+    font-size: 0.8rem;
     color: var(--deep-coral);
     line-height: 1.4;
 }
@@ -136,12 +134,11 @@ body {
 
 .invite-photo-wrap {
     margin-top: 10px;
-    width: 82%;
-    flex: 1;
-    min-height: 0;
+    width: 60%;
+    aspect-ratio: 305 / 512;
+    flex: 0 0 auto;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 14px rgba(74, 59, 51, 0.28);
 }
 
 .invite-photo {
@@ -152,23 +149,60 @@ body {
     display: block;
 }
 
-.confirmed-back-link {
-    position: relative;
-    z-index: 1;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.9rem;
-    color: var(--deep-coral);
-    text-decoration: none;
-}
-
-.confirmed-back-link:hover {
-    text-decoration: underline;
-}
-
 @media (max-width: 480px) {
-    .invite-title { font-size: 1.15rem; }
-    .invite-subtitle { font-size: 0.75rem; }
-    .invite-datetime { font-size: 0.7rem; }
+    .invite-datetime { font-size: 0.85rem; }
     .invite-address,
-    .invite-reception { font-size: 0.54rem; }
+    .invite-reception { font-size: 0.68rem; }
+}
+
+/* "See where" / "See date and time" buttons - reuse the details-section
+   buttons and their popups (detail-collage.css), perched at the foot of
+   the letter card, one at each bottom corner (like family-rsvp-wrap /
+   family-styling-btn do on the family section). */
+.confirmed-details-buttons .detail-map-btn,
+.confirmed-details-buttons .detail-book-btn {
+    position: absolute;
+    top: auto;
+    bottom: -6%;
+    transform: none;
+    z-index: 3;
+}
+
+.confirmed-details-buttons .detail-map-btn {
+    top: 70%;
+    left: 3%;
+    right: auto;
+    width: 30%;
+    max-width: 150px;
+}
+
+.confirmed-details-buttons .detail-book-btn {
+    left: auto;
+    right: -2%;
+    width: 50%;
+    max-width: 180px;
+}
+
+/* Landscape desktop only - the corner buttons read as too small against
+   the much wider card at this size, and the map button's stray top:70%
+   (mobile-only, left as-is) doesn't apply here so it can sit flush at the
+   foot like the book button instead of floating mid-card. */
+@media (min-width: 1024px) and (orientation: landscape) {
+    .confirmed-details-buttons .detail-map-btn,
+    .confirmed-details-buttons .detail-book-btn {
+        top: auto;
+        bottom: -8%;
+    }
+
+    .confirmed-details-buttons .detail-map-btn {
+        left: 2%;
+        width: 34%;
+        max-width: 210px;
+    }
+
+    .confirmed-details-buttons .detail-book-btn {
+        right: -3%;
+        width: 56%;
+        max-width: 260px;
+    }
 }

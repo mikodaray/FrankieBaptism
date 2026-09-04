@@ -1,7 +1,10 @@
 // RSVP Confirmed Page - confetti entrance animation
 import '../styles/confirmed.css';
+import { initDetailCollage } from './detailCollage.js';
+import { initMapOverlay } from './map.js';
+import { initGuestGreeting } from './guestName.js';
 
-const CONFETTI_PIECES = ['🎉', '✨', '💗', '🎊', '🕊️'];
+const CONFETTI_PIECES = ['🌸', '🌼', '🌷', '🌺', '🌻'];
 const CONFETTI_COUNT = 26;
 
 function spawnConfetti(layer) {
@@ -27,4 +30,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if ('vibrate' in navigator) {
         navigator.vibrate([30, 40, 30, 40, 60]);
     }
+
+    // ?nobuttons=true hides the "see where" / "see date and time" buttons,
+    // e.g. for a share link that should just show the confirmation itself.
+    const hideButtons = new URLSearchParams(window.location.search).get('nobuttons') === 'true';
+    const detailsButtons = document.querySelector('.confirmed-details-buttons');
+    if (hideButtons && detailsButtons) {
+        detailsButtons.style.display = 'none';
+    }
+
+    initDetailCollage();
+    initMapOverlay();
+    initGuestGreeting();
 });
