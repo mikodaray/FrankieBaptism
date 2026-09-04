@@ -14,6 +14,10 @@ export function initEnvelope() {
         return;
     }
 
+    // Reminder-flow visitors clicking the seal confirm their RSVP instead of
+    // opening the invitation, so route them to the confirmation page.
+    const isReminderFlow = new URLSearchParams(window.location.search).get('reminder') === 'true';
+
     // Prevent scrolling while envelope is showing
     document.body.style.overflow = 'hidden';
 
@@ -28,6 +32,12 @@ export function initEnvelope() {
     // envelope with the letter
     function openEnvelope() {
         if (transitioned) return;
+
+        if (isReminderFlow) {
+            window.location.href = 'confirmed.html';
+            return;
+        }
+
         transitioned = true;
 
         // Scroll to top before revealing

@@ -1,4 +1,8 @@
 import { defineConfig } from 'vite'
+import { resolve, dirname } from 'path'
+import { fileURLToPath } from 'url'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   // Base path for GitHub Pages deployment
@@ -10,7 +14,13 @@ export default defineConfig({
     // Generate sourcemaps for debugging
     sourcemap: false,
     // Use esbuild for minification (default, no extra dependency needed)
-    minify: 'esbuild'
+    minify: 'esbuild',
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        confirmed: resolve(__dirname, 'confirmed.html')
+      }
+    }
   },
   server: {
     port: 4300,
