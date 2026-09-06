@@ -44,6 +44,7 @@ body {
    bobbing gently in place; stays below the popups (z-index 10001+) so it
    never sits on top of an open modal. */
 .confirmed-note {
+    display: none;
     position: fixed;
     top: 16px;
     right: 16px;
@@ -61,6 +62,12 @@ body {
     text-align: center;
     box-shadow: 0 8px 20px rgba(74, 59, 51, 0.25);
     transform: rotate(-4deg);
+}
+
+/* Only guests whose display name contains "Ninong"/"Ninang" get this class
+   added (see guestName.js), so the reminder note reaches godparents only. */
+.confirmed-note.visible {
+    display: block;
     animation: confirmedNoteFloat 3.5s ease-in-out infinite;
 }
 

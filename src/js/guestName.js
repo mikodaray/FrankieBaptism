@@ -66,6 +66,13 @@ export async function initGuestGreeting() {
                 Object.assign(document.createElement('strong'), { textContent: name, className: 'invite-eyebrow-name' }),
                 ', see you at...'
             );
+
+            // Only godparents ("Ninong"/"Ninang" in their display name) need
+            // the early-arrival reminder note.
+            if (/ninong|ninang/i.test(name)) {
+                const note = document.querySelector('.confirmed-note');
+                if (note) note.classList.add('visible');
+            }
         }
     } catch (err) {
         console.warn('Guest name lookup failed:', err);
