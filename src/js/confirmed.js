@@ -3,6 +3,7 @@ import '../styles/confirmed.css';
 import { initDetailCollage } from './detailCollage.js';
 import { initMapOverlay } from './map.js';
 import { initGuestGreeting } from './guestName.js';
+import { initReadTracker } from './readTracker.js';
 
 const CONFETTI_PIECES = ['🌸', '🌼', '🌷', '🌺', '🌻'];
 const CONFETTI_COUNT = 26;
@@ -42,4 +43,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initDetailCollage();
     initMapOverlay();
     initGuestGreeting();
+    initReadTracker();
 });

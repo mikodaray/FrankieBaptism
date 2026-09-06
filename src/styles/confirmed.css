@@ -40,6 +40,35 @@ body {
     z-index: 1;
 }
 
+/* Floating reminder note - pinned to a corner like a little sticky note,
+   bobbing gently in place; stays below the popups (z-index 10001+) so it
+   never sits on top of an open modal. */
+.confirmed-note {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 50;
+    max-width: 170px;
+    background: var(--cream);
+    border: 2px solid var(--coral);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    line-height: 1.35;
+    color: var(--deep-coral);
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(74, 59, 51, 0.25);
+    transform: rotate(-4deg);
+    animation: confirmedNoteFloat 3.5s ease-in-out infinite;
+}
+
+@keyframes confirmedNoteFloat {
+    0%, 100% { transform: rotate(-4deg) translateY(0); }
+    50% { transform: rotate(-4deg) translateY(-8px); }
+}
+
 .confetti-piece {
     position: absolute;
     top: -10vh;

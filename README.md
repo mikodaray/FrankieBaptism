@@ -145,6 +145,36 @@ whether the script itself succeeded. If RSVPs stop appearing in the sheet,
 check the Apps Script deployment is still active and re-check the header
 names match what `doPost` expects.
 
+### Read Tracking on the Confirmed Page
+
+`confirmed.html?guest=N` marks row `N` of the guest-list sheet (the "Sheet2"
+tab, column D) as `"Read"` when the page loads, via a `doGet` handler on the
+**same** Apps Script project used above. To set it up:
+
+1. Open the same Apps Script project (Extensions → Apps Script) and add
+   this function alongside the existing `doPost`:
+   ```javascript
+   function doGet(e) {
+     if (e.parameter.action === 'markRead') {
+       var row = parseInt(e.parameter.guest, 10);
+       if (row > 0) {
+         var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Sheet2');
+         sheet.getRange(row, 4).setValue('Read');
+       }
+     }
+     return ContentService.createTextOutput(JSON.stringify({ status: 'ok' }));
+   }
+   ```
+2. **Deploy → Manage deployments →** edit the existing web app deployment
+   (pencil icon) **→ Version: New version → Deploy**. This keeps the same
+   URL, so nothing in the site's code needs to change.
+
+Like the RSVP save, this is a fire-and-forget `no-cors` request from
+`src/js/readTracker.js`, so it can't confirm success client-side either -
+if "Read" stops appearing in column D, check the deployment was actually
+redeployed with the new version (editing the script alone doesn't update
+the live `/exec` URL).
+
 ### Update Countdown Date
 
 Edit `src/js/countdown.js` and change the `EVENT_DATE` constant:

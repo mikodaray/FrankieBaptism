@@ -4,7 +4,7 @@ import { pulseClick } from './uiHelpers.js';
 // Paste the deployment URL of a Google Apps Script Web App here to have
 // submissions appended to a Google Sheet. See README.md for setup steps.
 // Left blank, RSVPs still open/close/reset normally, they just won't be saved.
-const GOOGLE_SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxHWKo45SVUDQc8dFLSR8pXEWL9bymD8QktzX4u1SKsa2VXy1t-LdcXKPW98Z-KqJpxwg/exec';
+export const GOOGLE_SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxHWKo45SVUDQc8dFLSR8pXEWL9bymD8QktzX4u1SKsa2VXy1t-LdcXKPW98Z-KqJpxwg/exec';
 
 export function initRsvpModal() {
     const rsvpBtn = document.getElementById('familyRsvpBtn');
