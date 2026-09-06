@@ -148,8 +148,10 @@ names match what `doPost` expects.
 ### Read Tracking on the Confirmed Page
 
 `confirmed.html?guest=N` marks row `N` of the guest-list sheet (the "Sheet2"
-tab, column D) as `"Read"` when the page loads, via a `doGet` handler on the
-**same** Apps Script project used above. To set it up:
+tab, column E) as `"Read"` when the page loads, via a `doGet` handler on the
+**same** Apps Script project used above. Column E, not D - column D already
+holds each guest's personalized `/confirmed?guest=N` link, so writing there
+would overwrite it. To set it up:
 
 1. Open the same Apps Script project (Extensions → Apps Script) and add
    this function alongside the existing `doPost`:
@@ -159,7 +161,7 @@ tab, column D) as `"Read"` when the page loads, via a `doGet` handler on the
        var row = parseInt(e.parameter.guest, 10);
        if (row > 0) {
          var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Sheet2');
-         sheet.getRange(row, 4).setValue('Read');
+         sheet.getRange(row, 5).setValue('Read');
        }
      }
      return ContentService.createTextOutput(JSON.stringify({ status: 'ok' }));
