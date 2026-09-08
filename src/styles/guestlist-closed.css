@@ -22,14 +22,45 @@ body.guestlist-closed {
     background-repeat: no-repeat;
 }
 
+/* Flowers drift up from the bottom of the whole screen, behind the card. */
+.guestlist-closed-flowers {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.gc-flower {
+    position: absolute;
+    bottom: -60px;
+    font-size: 1.8rem;
+    opacity: 0;
+    animation: guestlistFlowerFloat 14s ease-in-out infinite;
+}
+
+.gc-flower:nth-child(1) { left: 8%;  font-size: 1.6rem; animation-delay: 0s; }
+.gc-flower:nth-child(2) { left: 22%; font-size: 2.2rem; animation-delay: 2.3s; }
+.gc-flower:nth-child(3) { left: 40%; font-size: 1.4rem; animation-delay: 4.6s; }
+.gc-flower:nth-child(4) { left: 62%; font-size: 2rem;   animation-delay: 6.9s; }
+.gc-flower:nth-child(5) { left: 78%; font-size: 1.7rem; animation-delay: 9.2s; }
+.gc-flower:nth-child(6) { left: 90%; font-size: 1.5rem; animation-delay: 11.5s; }
+
+@keyframes guestlistFlowerFloat {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.85; }
+    90% { opacity: 0.85; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
 .guestlist-closed-card {
+    position: relative;
+    z-index: 1;
     max-width: 420px;
     width: 100%;
     text-align: center;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 24px;
+    background: transparent;
     padding: 48px 32px;
-    box-shadow: 0 20px 60px rgba(74, 59, 51, 0.22);
     animation: cardReveal 0.8s ease-out forwards;
 }
 
@@ -38,6 +69,7 @@ body.guestlist-closed {
     height: auto;
     margin-bottom: 12px;
     filter: drop-shadow(0 8px 16px rgba(74, 59, 51, 0.25));
+    animation: heartbeat 2.5s ease-in-out infinite;
 }
 
 .guestlist-closed-message {
@@ -47,6 +79,7 @@ body.guestlist-closed {
     color: var(--coral);
     text-shadow: 2px 2px 4px rgba(224, 137, 156, 0.35);
     margin-bottom: 10px;
+    animation: shimmer 3s ease-in-out infinite;
 }
 
 .guestlist-closed-submessage {
@@ -54,6 +87,8 @@ body.guestlist-closed {
     font-style: italic;
     font-size: 1.2rem;
     color: var(--text-dark);
+    opacity: 0;
+    animation: fadeIn 1s ease-out 0.5s forwards;
 }
 
 @media (max-width: 480px) {
