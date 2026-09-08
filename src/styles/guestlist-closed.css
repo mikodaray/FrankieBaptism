@@ -33,11 +33,11 @@ body.guestlist-closed {
     animation: cardReveal 0.8s ease-out forwards;
 }
 
-.guestlist-closed-cross {
-    width: 2.6rem;
+.guestlist-closed-gif {
+    width: 140px;
     height: auto;
-    margin-bottom: 20px;
-    animation: pulse 2.4s ease-in-out infinite;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 8px 16px rgba(74, 59, 51, 0.25));
 }
 
 .guestlist-closed-message {
