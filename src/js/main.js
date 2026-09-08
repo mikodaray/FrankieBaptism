@@ -12,8 +12,17 @@ import { initFamilySection } from './familySection.js';
 import { initMusicToggle } from './music.js';
 import { initGodparentBanners } from './godparents.js';
 
+// The guestlist is finalized (see index.html's #guestlistClosedOverlay) -
+// nothing else on this page should initialize. Flip back to false (and
+// remove the overlay markup) to reopen the invitation.
+const GUESTLIST_CLOSED = true;
+
 // Initialize all modules when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
+    if (GUESTLIST_CLOSED) {
+        return;
+    }
+
     initPageLoader();
     initEnvelope();
     initSnapNavigation();

@@ -15,6 +15,7 @@
 @import './family-section.css';
 @import './rsvp.css';
 @import './responsive.css';
+@import './guestlist-closed.css';
 
 /* Main Container */
 .container {

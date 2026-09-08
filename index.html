@@ -11,7 +11,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="guestlist-closed">
+    <!-- Guestlist Closed Lock Screen - RSVPs are finalized, so the
+         invitation is closed. main.js skips initializing every other
+         module while this is active, so this message is the only thing a
+         visitor to this page can see or interact with. The confirmed.html
+         page (personalized confirmations) is a separate entry point and is
+         unaffected. Flip GUESTLIST_CLOSED in main.js back to false (and
+         remove/hide this block) to reopen the invitation. -->
+    <div class="guestlist-closed-overlay" id="guestlistClosedOverlay">
+        <div class="guestlist-closed-card">
+            <img src="images/cross.png" alt="Cross" class="guestlist-closed-cross">
+            <p class="guestlist-closed-message">We have finalized the guestlist!</p>
+            <p class="guestlist-closed-submessage">See you Saturday!</p>
+        </div>
+    </div>
+
     <!-- Envelope Introduction -->
     <div class="envelope-intro" id="envelopeIntro">
         <!-- Background floating hearts -->

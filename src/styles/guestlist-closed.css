@@ -1,0 +1,61 @@
+/* Guestlist Closed Lock Screen - replaces the entire invitation once RSVPs
+   are finalized. main.js skips initializing every other module while this
+   is active, so this overlay (pure HTML/CSS, no JS needed) is the only
+   thing a visitor to index.html can see or interact with. confirmed.html
+   is a separate entry point and is unaffected. */
+body.guestlist-closed {
+    overflow: hidden;
+}
+
+.guestlist-closed-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 20000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background-color: var(--cream);
+    background-image: url('/images/backgroundimage.png');
+    background-size: cover;
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+
+.guestlist-closed-card {
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 24px;
+    padding: 48px 32px;
+    box-shadow: 0 20px 60px rgba(74, 59, 51, 0.22);
+    animation: cardReveal 0.8s ease-out forwards;
+}
+
+.guestlist-closed-cross {
+    width: 2.6rem;
+    height: auto;
+    margin-bottom: 20px;
+    animation: pulse 2.4s ease-in-out infinite;
+}
+
+.guestlist-closed-message {
+    font-family: 'Alex Brush', cursive;
+    font-size: 2.4rem;
+    line-height: 1.25;
+    color: var(--coral);
+    text-shadow: 2px 2px 4px rgba(224, 137, 156, 0.35);
+    margin-bottom: 10px;
+}
+
+.guestlist-closed-submessage {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+}
+
+@media (max-width: 480px) {
+    .guestlist-closed-message { font-size: 1.9rem; }
+}
